@@ -17,7 +17,7 @@
 void Assert(int SafeCondition, char* ErrMsg)
 {
   if (!SafeCondition) {
-    cerr << "***Error: " << ErrMsg << endl;
+    std::cerr << "***Error: " << ErrMsg << std::endl;
     exit(1);
   }
 }
@@ -29,5 +29,5 @@ void Assert(int SafeCondition, char* ErrMsg)
 void Warn(int SafeCondition, char* ErrMsg)
 {
   if (!SafeCondition)
-    cerr << "***Warning: " << ErrMsg << endl;
+    std::cerr << "***Warning: " << ErrMsg << std::endl;
 }
