@@ -1,0 +1,354 @@
+//This code is related to opening a new  window, should be easy direct port to GLUT
+
+  keepaspect(1,1);
+  prefposition(300, 1285, 0, 985);
+  winopen("4-D Tetris"); // make sure you open the window BEFORE initializing
+                         // any data structures.  Otherwise, you'll dump core
+  winconstraints();  // should allow window to be resized
+
+
+//keyboard ready commands not sure how they should port, don't think their needed...
+  qdevice(PAD1);
+  qdevice(PAD2);
+  qdevice(PAD3);
+  qdevice(PAD4);
+  qdevice(PAD6);
+  qdevice(PAD7);
+  qdevice(PAD8);
+  qdevice(PAD9);
+  qdevice(SPACEKEY);
+  qdevice(F1KEY);
+  qdevice(F2KEY);
+  qdevice(F3KEY);
+  qdevice(F4KEY);
+  qdevice(F5KEY);
+  qdevice(F6KEY);
+  qdevice(F7KEY);
+  qdevice(F8KEY);
+  qdevice(F9KEY);
+  qdevice(F10KEY);
+  qdevice(F11KEY);
+  qdevice(F12KEY);
+
+
+//more igl setup command... gconfig is no needed
+ zbuffer(1); doublebuffer(); RGBmode();
+  qdevice(MOUSEX); qdevice(MOUSEY;)
+
+
+
+//main processing loop, most should go into keyboard function
+  while (gameon && !getbutton(ESCKEY)) {
+    ortho(-5.01, 5.01, -5.01, 5.01, -5.01, 5.01);
+
+    // if there is to be a rotation
+    if (gameon == 1)
+      if (getbutton(LEFTALTKEY) || getbutton(RIGHTALTKEY)) {
+	if (getbutton(PAD6)) {
+	  if (getbutton(PAD8)) {
+	    SOAK(PAD6);
+	    SOAK(PAD8);
+	    dude->Rotate(X, Y, 1);
+	  } else if (getbutton(PAD2)) {
+	    SOAK(PAD6);
+	    SOAK(PAD2);
+	    dude->Rotate(X, Y, -1);
+	  } else if (getbutton(PAD9)) {
+	    SOAK(PAD6);
+	    SOAK(PAD9);
+	    dude->Rotate(X, Z, 1);
+	  } else if (getbutton(PAD1)) {
+	    SOAK(PAD6);
+	    SOAK(PAD1);
+	    dude->Rotate(X, Z, -1);
+	  } else if (getbutton(PAD7)) {
+	    SOAK(PAD6);
+	    SOAK(PAD7);
+	    dude->Rotate(X, W, 1);
+	  } else if (getbutton(PAD3)) {
+	    SOAK(PAD6);
+	    SOAK(PAD3);
+	    dude->Rotate(X, W, -1);
+	  }
+	} else if (getbutton(PAD4)) {
+	  if (getbutton(PAD8)) {
+	    SOAK(PAD4);
+	    SOAK(PAD8);
+	    dude->Rotate(X, Y, -1);
+	  } else if (getbutton(PAD2)) {
+	    SOAK(PAD4);
+	    SOAK(PAD2);
+	    dude->Rotate(X, Y, 1);
+	  } else if (getbutton(PAD9)) {
+	    SOAK(PAD4);
+	    SOAK(PAD9);
+	    dude->Rotate(X, Z, -1);
+	  } else if (getbutton(PAD1)) {
+	    SOAK(PAD4);
+	    SOAK(PAD1);
+	    dude->Rotate(X, Z, 1);
+	  } else if (getbutton(PAD7)) {
+	    SOAK(PAD4);
+	    SOAK(PAD7);
+	    dude->Rotate(X, W, -1);
+	  } else if (getbutton(PAD3)) {
+	    SOAK(PAD4);
+	    SOAK(PAD3);
+	  dude->Rotate(X, W, 1);
+	  }
+	} else if (getbutton(PAD8)) {
+	  if (getbutton(PAD9)) {
+	    SOAK(PAD8);
+	    SOAK(PAD9);
+	    dude->Rotate(Y, Z, 1);
+	  } else if (getbutton(PAD1)) {
+	    SOAK(PAD8);
+	    SOAK(PAD1);
+	    dude->Rotate(Y, Z, -1);
+	  } else if (getbutton(PAD7)) {
+	    SOAK(PAD8);
+	    SOAK(PAD7);
+	    dude->Rotate(Y, W, 1);
+	  } else if (getbutton(PAD3)) {
+	    SOAK(PAD8);
+	    SOAK(PAD3);
+	    dude->Rotate(Y, W, -1);
+	  }
+	} else if (getbutton(PAD2)) {
+	  if (getbutton(PAD9)) {
+	    SOAK(PAD2);
+	    SOAK(PAD9);
+	    dude->Rotate(Y, Z, -1);
+	  } else if (getbutton(PAD1)) {
+	    SOAK(PAD2);
+	    SOAK(PAD1);
+	    dude->Rotate(Y, Z, 1);
+	  } else if (getbutton(PAD7)) {
+	    SOAK(PAD2);
+	    SOAK(PAD7);
+	    dude->Rotate(Y, W, -1);
+	  } else if (getbutton(PAD3)) {
+	    SOAK(PAD2);
+	    SOAK(PAD3);
+	    dude->Rotate(Y, W, 1);
+	  }
+	} else if (getbutton(PAD9)) {
+	  if (getbutton(PAD7)) {
+	    SOAK(PAD9);
+	    SOAK(PAD7);
+	    dude->Rotate(Z, W, 1);
+	  } else if (getbutton(PAD3)) {
+	    SOAK(PAD9);
+	    SOAK(PAD3);
+	    dude->Rotate(Z, W, -1);
+	  }
+	} else if (getbutton(PAD1)) {
+	  if (getbutton(PAD7)) {
+	    SOAK(PAD1);
+	    SOAK(PAD7);
+	    dude->Rotate(Z, W, -1);
+	  } else if (getbutton(PAD3)) {
+	    SOAK(PAD1);
+	    SOAK(PAD3);
+	    dude->Rotate(Z, W, 1);
+	  }
+	}
+      } // the ALT keys
+    
+      // otherwise look for a translation
+      else if (getbutton(PAD6)) {
+	SOAK(PAD6);
+	dude->Translate(X, 1);
+      } else if (getbutton(PAD4)) {
+	SOAK(PAD4);
+	dude->Translate(X, -1);
+      } else if (getbutton(PAD8)) {
+	SOAK(PAD8);
+	dude->Translate(Y, 1);
+      } else if (getbutton(PAD2)) {
+	SOAK(PAD2);
+	dude->Translate(Y, -1);
+      } else if (getbutton(PAD9)) {
+	SOAK(PAD9);
+	dude->Translate(Z, 1);
+      } else if (getbutton(PAD1)) {
+	SOAK(PAD1);
+	dude->Translate(Z, -1);
+      } else if (getbutton(PAD7)) {
+	SOAK(PAD7);
+	dude->Translate(W, 1);
+      } else if (getbutton(PAD3)) {
+	SOAK(PAD3);
+	dude->Translate(W, -1);
+      }
+
+
+      // drop the piece
+      else if (getbutton(SPACEKEY)) {
+	SOAK(SPACEKEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = NewPiece(numpieces, mypieces);
+      }
+
+      // take a look at the different pieces
+      else if (getbutton(F1KEY)) {
+	SOAK(F1KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new CubePiece();
+      } else if (getbutton(F2KEY)) {
+	SOAK(F2KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new LPiece();
+      } else if (getbutton(F3KEY)) {
+	SOAK(F3KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new SPiece();
+      } else if (getbutton(F4KEY)) {
+	SOAK(F4KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new StraightPiece();
+      } else if (getbutton(F5KEY)) {
+	SOAK(F5KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new TPiece();
+      } else if (getbutton(F6KEY)) {
+	SOAK(F6KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new CornerPiece();
+      } else if (getbutton(F7KEY)) {
+	SOAK(F7KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new TwistyPiece();
+      } else if (getbutton(F8KEY)) {
+	SOAK(F8KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new ZPiece();
+      } else if (getbutton(F9KEY)) {
+	SOAK(F9KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new ThreeLinePiece();
+      } else if (getbutton(F10KEY)) {
+	SOAK(F10KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new TriPiece();
+      } else if (getbutton(F11KEY)) {
+	SOAK(F11KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new TwoPiece();
+      } else if (getbutton(F12KEY)) {
+	SOAK(F12KEY);
+	dude->Drop();
+	gameon = dude->DonePiece();
+	delete dude;
+	dude = new SimplePiece();
+      }
+
+
+
+//auto fall stuff... maybe go into idle func?
+  
+    if (AUTOFALL && (gameon == 1)) {
+      gettimeofday(temptime);
+      if ((temptime->tv_sec > newtime->tv_sec) ||
+	  ((temptime->tv_sec == newtime->tv_sec) &&
+	   (temptime->tv_usec >= newtime->tv_usec))) {
+	newtime->tv_sec = temptime->tv_sec + waiting->tv_sec;
+	newtime->tv_usec = temptime->tv_usec + waiting->tv_usec;
+	if (!(dude->Translate(W, -1))) {
+	  gameon = dude->DonePiece();
+	  delete dude;
+	  //dude = new CubePiece();
+	  dude = NewPiece(numpieces, mypieces);
+	}
+      }
+    }
+
+//yet more keyboard func stuff
+    // pause/unpause the game
+    if (getbutton(MOUSE2)) {
+      SOAK(MOUSE2);
+      gameon = -gameon;
+    }
+
+    if (getbutton(LEFTCTRLKEY) || getbutton(RIGHTCTRLKEY))
+      if (getbutton(MOUSE1)) {
+	SOAK(MOUSE1);
+	if (ONE_TURN_AT_A_TIME)
+	  for (int i = 0; i < 4; i++)
+	    quad[i]->Deactivate();
+	
+	quad[MyQuad(getvaluator(MOUSEX), getvaluator(MOUSEY))]->Activate();
+	
+      } else if (getbutton(MOUSE3)) {
+	SOAK(MOUSE3);
+	for (int i = 0; i < 4; i++)
+	  quad[i]->Deactivate();
+      }
+
+
+//reset stuff
+    cpack(0); clear(); zclear();
+    reshapeviewport();
+
+//main drawing code... go into display func?
+    // put the x, y, z axes in the upper right hand corner (quad 1)
+    pushmatrix();
+    translate(2.5, 2.5, 0.0);
+    quad[1]->Rotate();
+    dude->Drawit(7);
+    board->Drawit(7);
+    popmatrix();
+
+    // put the w, x, y axes in the upper left hand corner (quad 0)
+    pushmatrix();
+    translate(-2.5, 2.5, 0.0);
+    quad[0]->Rotate();
+    dude->Drawit(11);
+    board->Drawit(11);
+    popmatrix();
+
+    // put the z, w, x axes in the lower left corner (quad 2)
+    pushmatrix();
+    translate(-2.5, -2.5, 0.0);
+    quad[2]->Rotate();
+    dude->Drawit(13);
+    board->Drawit(13);
+    popmatrix();
+
+    // put the y, z, w axes in the lower right corner (quad 3)
+    pushmatrix();
+    translate(2.5, -2.5, 0.0);
+    quad[3]->Rotate();
+    dude->Drawit(14);
+    board->Drawit(14);
+    popmatrix();
+
+    swapbuffers();
+
+
+
+

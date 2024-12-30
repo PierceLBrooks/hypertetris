@@ -1,0 +1,22 @@
+Refrences -
+
+Greg Kaiser's 4D Tetris.
+
+The OpenGL Utility Toolkit (GLUT) Programming Interface API Version 3
+ - Author: Mark J. Kilgard, Silicon Graphics, Inc.
+ - Resource: http://reality.sgi.com/mjk_asd/spec3/spec3.html
+
+The OpenGL Graphics System: A Specification (Version 1.1)
+ - Authors: Mark Segal, Kurt Akeley 
+ - Editor: Chris Frazier
+ - Resource: http://trant.sgi.com/opengl/docs/Specs/glspec1.1/glspec.html
+
+OpenGL doc in HTML
+ - From: OpenGL Reference Manual -- The Official Reference Document for OpenGL, Release 1
+	 - Taken from the refrence pages
+ - Author: Uwe Behrens
+ - Resource: http://www.cevis.uni-bremen.de/~uwe/opengl/
+
+OpenGL Functions and Their IRIS GL Equivalents
+ - Released by: Microsoft in MSDN Online Library
+ - Resource: http://msdn.microsoft.com/library/psdk/opengl/appenda1_3soj.htm

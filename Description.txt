@@ -1,0 +1,4 @@
+I have converted Gred Kaiser's 4D Tetris (hyperTetris) from IrisGL to OpenGL and GLUT.  This will allow futher development of hyperTetris with modern tools.  In this vain I have also made two modifications to the RTICA, you can now use the P key to pause the game and prevent pieces from automatically falling.  In addition, I have added CTRL-Middle Click to re-activate the rotation of all of the quadrants.
+
+My change notes are in the README-VERSION file, in addition there is an extensive step-by-step set of zips in the history directory.
+

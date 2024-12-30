@@ -1,0 +1,215 @@
+INTRO:
+This directory contains the pre-release (don't you feel special) version
+of four-dimensional Tetris.  In this directory is all of the source code,
+the makefile, this README file, and the game itself, HyperTetris.
+
+THE GAME:
+The game play is the Tetris concept, with simply a couple more
+dimensions added.  The object is to fill as many cubes (as opposed to lines)
+with pieces as possible.  
+
+
+SUGGESTIONS FOR BEGINNERS:
+For those of us not raised on four-dimensional board games as children,
+this game is quite difficult.  Some suggestions I have for beginners:
+1) Read this README file.  I realize that I'm no rhetoric whiz, but this
+   file does contain a lot of useful information about the game.
+2) The first several time you run the program, don't even try to play
+   the game.  Use the -NOFALL option (explained later in this file) and
+   experiment with things.  Figure out how the pieces look, how the
+   rotations work, etc.
+2) Use the -NOFALL option the first several times you play the game.
+3) Limit the pieces the first several times you play.  Play with only the
+   one, two, and three cubed pieces before taking them all on.
+4) Have patience.  I wrote this game and still can't fill a single cube
+   without some sort of command line help.  This isn't the kind of game
+   that anyone can master over-night.
+5) Use the 'p' key to pause the game, to give yourself some time to think,
+   equivalent to the -NOFALL option
+
+CONTROL OF THE PIECES:
+The control of the pieces is based off of the keypad, where the keypad
+looks like this:
+7  8  9
+4  5  6
+1  2  3
+
+For the purposes of my game, the keypad can be seen as this:
+ _   ^   _
+|\  /|\  /|
+  \  |  /
+   \ | /    
+x   \|/  \
+-----*---->     (I think I'm better with gl than ASCII)
+    /|\  /
+   / | \
+  /  |  \
+z/   |   \w
+/   y|    \
+
+
+And thus, 4 is the negative x direction, 7 is the positive w, etc.
+
+To move a piece, simply press the button for the direction you want to
+move in.  It should be noted if you hold down a button for a long time,
+you will not move anywhere until you release it, and it will only move
+your piece one spot.
+
+To rotate a piece.  Basically, each rotation takes place in a plane.
+To rotate a piece in the x-y plane, first press ALT, then 8 on the
+key pad and 6 on the key pad.  The best way to visualize this rotation
+is to simply play the game and experiment.  If you wish to do a negative
+rotation in the x-y plane, make one of your x-y thingies negative, i.e.
+press ALT-8-4 or ALT-2-6.
+
+The spacebar will drop a piece.
+
+
+YOUR VIEW OF THE GAME:
+On the screen are four three-dimensional projections of the 4D space
+which the game is taking place in.  In the upper right corner is the
+x, y, z projection, upper left is the w, x, y projection, lower left
+is the z, w, x projection, and lower right is the y, z, w projection.
+You will notice that when the game first begins, you only see a piece
+in the x, y, z projection.  This is because the pieces start off of 
+the board in the w direction.  If you use the default setting, then
+the piece will slowly fall into the other projections.  If you used
+the -NOFALL option, you need to move the piece in the negative w direction
+yourself (press 3 on the keypad). 
+There are 4 different colored walls used in the projections.  Each
+represent the negative barrier of a certain direction.  The white 
+wall is the "bottom" and is the furthest something can move in -w.
+The red, green, and blue walls correspond to -x, -y, and -z respectively.
+
+
+CONTROL OF YOUR VIEW:
+When you begin the game, you'll notice that all of the projections rotate
+about the mouse movement.  If you click the left or right mouse buttons,
+(which I will refer to as LEFT CLICK and RIGHT CLICK) you will see the
+projections rotate about one of their axes.  If you hold down the shift
+key and do this (SHIFT-LEFT CLICK or SHIFT-RIGHT CLICK), then they will
+rotate much faster.  If you hold down the control key and click the
+left mouse button, (CTRL-LEFT CLICK) they will quit rotating.  Then, if
+you CTRL-RIGHT CLICK while the mouse cursor is over a certain projection,
+then that projection will begin to rotate according to the mouse movements.
+If you CTRL-RIGHT CLICK over a different projection, the previous projection
+will freeze and this new projection will start rotating.  CTRL-LEFT CLICK
+will freeze any rotating projection without starting the rotation of another.
+I realize that my explanation is sort of difficult to understand, but 
+I think that if you experiment with it, you'll see what's going on.
+To reactive the rotation of all four quadrants, press CTRL-MIDDLE CLICK
+
+PAUSING THE GAME:
+Clicking on the middle mouse button will pause the game.  When the game
+is paused, you can not move or rotate any piece, but you can use the
+mouse to control your view and rotate the projections.  Clicking the
+middle mouse button again will unpause the game.
+
+Just added is another way to pause the game that will allow you to
+manipulate the pieces while the game, is paused.  Use the 'p' key to
+activate this feature
+
+
+THE PIECES:
+There are presently 12 pieces in the this game.  I will list them by
+their piece number and piece name, and then explain them: 1-CubePiece,
+2-LPiece, 3-SPiece, 4-StraightPiece, 5-TPiece, 6-CornerPiece,
+7-TwistyPiece, 8-ZPiece, 9-ThreeLinePiece, 10-TriPiece, 11-TwoPiece,
+12-SimplePiece.
+Now, instead of attempting to describe how each of these pieces look,
+I've done better.  In the game, pressing one of the F# keys will drop
+the present piece and give you piece number #.  In other words, if you
+want to look at the TPiece, simply press F5, and your present piece
+will drop and you'll get a TPiece.
+Suggestion:  Before you start playing, start a game in -NOFALL mode and
+go through each of the pieces, to get an idea of what they look like
+and how they move.
+
+
+COMMAND LINE ARGUMENTS:
+-NOFALL By default the pieces fall through w automatically.  It is very
+        useful, however, when you are first getting used to the game,
+        first getting used to new pieces, and such to not have these
+        pieces fall automatically.  Thus, with the -NOFALL option, you
+        can simply bring the piece down through w (3 on the keypad) at
+        your own leisure.
+
+-DIM x y z w
+	Right now, the dimensions, in terms of hypercube side lengths, of
+   	the playing board, is 4x4x4x10, that is, you can fit 4 hypercubes
+	next to each other in the x, y, and z directions, and 10 hypercubes
+	on top of each other in the w direction.  By calling something like
+	HyperTetris -DIM 2 4 3 8, you will create a 2x4x3x8 playing board
+	for the dimensions x, y, z, and w respectively.  NOTE: The game
+	expects that the w dimension is larger than any of the other
+	three dimensions, and thus a call like HyperTetris -DIM 5 5 5 4
+	will probably crash the program. 
+
+-MULTITURN
+	As explained in "control of your view", once you click the right
+	mouse button on a different projection, the projection you were
+	rotating will stop.  If you don't want this, and would like to
+	rotate multiple projections at once, use this flag.  When you
+	click the right mouse button on a projection, it will simply be
+	rotated along with any other projections currently rotating.  
+	Pressing the left mouse button will freeze all projections.
+
+-FALLTIME sec usec
+	Right now, the game waits 4 seconds before dropping a piece
+	another step in the W direction.  If you wish to change this
+	to make it longer or shorter, simply enter _integer_ values
+	for sec, which is the number of second, and usec, which is the
+	number of microseconds (there are 1,000,000 microseconds in a 
+	second).  Thus, if you want a fall time of 2.5 seconds, use
+	HyperTetris -FALLTIME 2 500000.
+
+-MYPIECES n piece(1) piece(2) ... piece(n)
+	As explained in "the pieces", each piece has a number.  By default,
+	all pieces except piece 8 are used throughout the random cycle
+	of the game.  If you wish to limit this, or for some sadistic
+	reason include piece 8, then use the -MYPIECES flag.  The first
+	number following the flag should be the number of pieces you want
+	to use.  Then, you should give the piece number for each of the
+	pieces that you wish to have.  Thus, if you want to only use the
+	LPiece and the SPiece, call HyperTetris -MYPIECES 2 2 3.
+
+-SHADEUNDER
+	In each of the projections that have the w axis, the shadow of
+ 	the falling piece is shown on the floor.  However, this shadow
+	is not mirrored on the underside of the floor.  If you use this
+	flag, the shadow will be mirrored to the underside of the floor,
+	which one may find helpful for seeing where a piece will fall,
+	but can create confusion as to which side of the floor you are
+	looking at.  Hence, the option for you.
+
+It should be noted that the command line parser is pretty dumb.  If you
+mess up a command line call, it will probably crash the program.  It is
+not, however, sensitive to order, so HyperTetris -NOFALL -DIM 3 4 5 10 is
+the same as HyperTetris -DIM 3 4 5 10 -NOFALL, but the call HyperTetris
+-DIM 3 4 -NOFALL 5 10 will probably crash the program.
+Just to give you a couple of sample command line combinations, here's some
+I use pretty often:
+HyperTetris -DIM 2 2 2 10 -FALLTIME 1 0 -MYPIECES 1 1
+HyperTetris -MYPIECES 4 9 10 11 12
+
+
+FREQUENTLY ASKED QUESTIONS:
+Q:  Why is it that sometimes a piece will go through another piece?  Is
+    this a bug?
+A:  No, since you are only looking at a three-dimensional subspace, it is
+    possible that the pieces share the same three coordinates that are
+    being displayed in that projection, but differ in their fourth
+    coordinate, which can be observed by looking at a different project.
+    The rule used when two pieces collide is that the piece which is more
+    positive in the fourth coordinate gets drawn over the other. 
+
+
+QUESTIONS, COMMENTS, BUGS, SUGGESTIONS, DONATIONS OF LARGE SUMS OF MONEY?
+Please feel free to email me (Greg Kaiser) at gjkaiser@uiuc.edu.  I would
+appreciate any and all feedback, questions, bug reports, and whatever.
+
+
+
+
+
+

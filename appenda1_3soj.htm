@@ -1,0 +1,1856 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML DIR="LTR">
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; CHARSET=iso8859-1">
+<TITLE>OpenGL Functions and Their IRIS GL Equivalents</TITLE>
+<SCRIPT SRC="/library/psdk/linkcss.js"></SCRIPT>
+<META NAME="MS-HKWD" CONTENT="OpenGL [OpenGL], reference, IRIS GL equivalents">
+</HEAD>
+<BODY TOPMARGIN="0">
+<!--TOOLBAR_START-->
+<!--TOOLBAR_EXEMPT-->
+<!--TOOLBAR_END-->
+
+<script language=javascript src='/library/toolbar/tgar.js'></script>
+<!--SYNC_START-->
+<script language="JavaScript" src='/library/synch.js'></script>
+<!--SYNC_END-->
+<H1><A NAME="_ogl_opengl_functions_and_their_iris_gl_equivalents"></A>OpenGL Functions and Their IRIS GL Equivalents</H1>
+
+<P>This appendix lists IRIS GL functions and their equivalent OpenGL functions. The first column is an alphabetic list of IRIS GL functions, the second column contains the corresponding functions to use in OpenGL.</P>
+
+<P class=note><B>Note</B>&nbsp;&nbsp;The following OpenGL functions listed may behave somewhat differently from the IRIS GL commands, and the parameters may be different as well. For more information on the differences between IRIS GL and OpenGL, see <A HREF="/library/psdk/opengl/appenb_5wkz.htm">I
+RIS GL and OpenGL Differences</A>. </P>
+
+<TABLE>
+
+<TR VALIGN="top">
+<TH align=left width=41%>IRIS GL function</TH>
+<TH align=left width=59%>OpenGL,GLU, or Win32 function</TH>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>acbuf</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_8o4t.htm"><B>glAccum</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>acsize</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_2qb8.htm"><B>ChoosePixelFormat</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>addtopup</TD>
+<TD width=59%>Use Win32 for menus.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>afunction</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_5qhv.htm"><B>glAlphaFunc</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>arc</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_2hwr.htm"><B>gluPartialDisk</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>backbuffer</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_4gxe.htm"><B>glDrawBuffer</B></A><B>(</B>GL_BACK<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>backface</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9yxx.htm"><B>glCullFace</B></A><B>(</B>GL_BACK<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bbox2</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgnclosedline</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9u3y.htm"><B>glBegin</B></A><B>(</B>GL_LINE_LOOP<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgncurve</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_2m3p.htm"><B>gluBeginCurve</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgnline</TD>
+<TD width=59%><B>glBegin(</B>GL_LINE_STRIP<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgnpoint</TD>
+<TD width=59%><B>glBegin(</B>GL_POINTS<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgnpolygon</TD>
+<TD width=59%><B>glBegin(</B>GL_POLYGON<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgnqstrip</TD>
+<TD width=59%><B>glBegin(</B>GL_QUAD_STRIP<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgnsurface</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_6q05.htm"><B>gluBeginSurface</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgntmesh</TD>
+<TD width=59%><B>glBegin(</B>GL_TRIANGLE_STRIP<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>bgntrim</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_54j1.htm"><B>gluBeginTrim</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>blankscreen</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>blanktime</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>blendfunction</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_4vs3.htm"><B>glBlendFunc</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>blink</TD>
+<TD width=59%>Use Win32 for color maps.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>blkqread</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>c </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_62b6.htm"><B>glColor</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>callfunc</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>callobj </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_6uk4.htm"><B>glCallList</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>charstr</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_8bub.htm"><B>glCallLists</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>chunksize</TD>
+<TD width=59%>Not needed.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>circ</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_6ox7.htm"><B>gluDisk</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>clear</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_8koi.htm"><B>glClear</B></A><B>(</B>GL_COLOR_BUFFER_BIT<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>clearhitcode</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>clipplane </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9g11.htm"><B>glClipPlane</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>clkon</TD>
+<TD width=59%>Use Win32 for keyboard management.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>clkoff</TD>
+<TD width=59%>Use Win32 for keyboard management.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>closeobj</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_2eyc.htm"><B>glEndList</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>cmode</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_2qb8.htm"><B>ChoosePixelFormat</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>cmov<BR>
+cmov2</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_0tgz.htm"><B>glRasterPos3</B></A><BR>
+<A HREF="/library/psdk/opengl/glfunc03_0tgz.htm"><B>glRasterPos2</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>color</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7ak8.htm"><B>glIndex</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>compactify</TD>
+<TD width=59%>Not needed.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>concave</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_1qni.htm"><B>gluBeginPolygon</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>cpack</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_62b6.htm"><B>glColor</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>crv</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>crvn</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>curorigin</TD>
+<TD width=59%>Use Win32 for cursors.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>cursoff</TD>
+<TD width=59%>Use Win32 for cursors.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>curson</TD>
+<TD width=59%>Use Win32 for cursors.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>curstype</TD>
+<TD width=59%>Use Win32 for cursors.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>curvebasis</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_78s1.htm"><B>glMap1</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>curveit</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_2rvs.htm"><B>glEvalMesh1</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>curveprecision </TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>cyclemap</TD>
+<TD width=59%>Use Win32 for color maps.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>czclear</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_8koi.htm"><B>glClear</B></A><B>(</B>GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>dbtext</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>defbasis</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_78s1.htm"><B>glMap1</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>defcursor</TD>
+<TD width=59%>Use Win32 for cursors.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>deflinestyle</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7sdh.htm"><B>glLineStipple</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>defpattern </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_1tr9.htm"><B>glPolygonStipple</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>defpup</TD>
+<TD width=59%>Use Win32 for menus.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>defrasterfont </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_2r8z.htm"><B>wglUseFontBitmaps</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>delobj </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_5iwj.htm"><B>glDeleteLists</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>deltag</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>depthcue</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5rmv.htm"><B>glFog</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>dglclose</TD>
+<TD width=59%>Not needed. (OpenGL is network transparent.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>dglopen</TD>
+<TD width=59%>Not needed. (OpenGL is network transparent.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>dither</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_3l5x.htm"><B>glEnable</B></A><B>(</B>GL_DITHER<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>dopup</TD>
+<TD width=59%>Use Win32 for menus.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>doublebuffer</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_2qb8.htm"><B>ChoosePixelFormat</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>draw</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9u3y.htm"><B>glBegin</B></A><B>(</B>GL_LINES<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>drawmode</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_2u0k.htm"><B>wglMakeCurrent</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>editobj</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endclosedline</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9u3y.htm"><B>glEnd</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endcurve</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_2m3p.htm"><B>gluEndCurve</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endfeedback</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_2aqt.htm"><B>glRenderMode</B></A><B>(</B>GL_RENDER<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endfullscreen</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endline</TD>
+<TD width=59%><B>glEnd</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endpick</TD>
+<TD width=59%><B>glRenderMode(</B>GL_RENDER<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endpoint</TD>
+<TD width=59%><B>glEnd</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endpolygon</TD>
+<TD width=59%><B>glEnd</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endpupmode</TD>
+<TD width=59%>Use Win32 for menus.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endqstrip</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9u3y.htm"><B>glEnd</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endselect</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_2aqt.htm"><B>glRenderMode</B></A><B>(</B>GL_RENDER<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endsurface</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_6q05.htm"><B>gluEndSurface</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endtmesh</TD>
+<TD width=59%><B>glEnd</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>endtrim</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_54j1.htm"><B>gluEndTrim</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>feedback</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_3m42.htm"><B>glFeedbackBuffer</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>finish</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_3aqw.htm"><B>glFinish</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>fogvertex </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5rmv.htm"><B>glFog</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>font</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_1icl.htm"><B>glListBase</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>foreground</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>freepup</TD>
+<TD width=59%>Use Win32 for menus.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>frontbuffer</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_4gxe.htm"><B>glDrawBuffer</B></A><B>(</B>GL_FRONT)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>frontface</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9yxx.htm"><B>glCullFace</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>fudge</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>fullscrn</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gammaramp</TD>
+<TD width=59%>Use Win32 for color maps.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gbegin</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gconfig</TD>
+<TD width=59%>No equivalent. (Not needed.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>genobj</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_75o3.htm"><B>glGenLists</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gentag</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getbackface</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5ub8.htm"><B>glGet</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getbuffer</TD>
+<TD width=59%><B>glGet</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getbutton</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getcmmode</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_667o.htm"><B>wglGetCurrentContext</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getcolor</TD>
+<TD width=59%><B>glGet</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getcpos</TD>
+<TD width=59%><B>glGet</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getcursor</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getdcm</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7pgk.htm"><B>glIsEnabled</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getdepth</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5ub8.htm"><B>glGet</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getdescender</TD>
+<TD width=59%>Use Win32 for fonts.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getdev</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getdisplaymode</TD>
+<TD width=59%><B>glGet</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>&nbsp;</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_667o.htm"><B>wglGetCurrentContext</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getdrawmode</TD>
+<TD width=59%><B>wglGetCurrentContext</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getfont</TD>
+<TD width=59%>Use Win32 for fonts.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getgdesc</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5ub8.htm"><B>glGet</B></A><BR>
+<B>DescribePixelFormat</B><BR>
+<B>wglGetCurrentContext</B><BR>
+<A HREF="/library/psdk/opengl/ntopnglr_7psz.htm"><B>wglGetCurrentDC</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getgpos </TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getheight</TD>
+<TD width=59%>Use Win32 for fonts.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gethitcode</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getlsbackup</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getlsrepeat</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5ub8.htm"><B>glGet</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getlstyle</TD>
+<TD width=59%><B>glGet</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getlwidth</TD>
+<TD width=59%><B>glGet</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getmap(void)</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getmatrix</TD>
+<TD width=59%><B>glGet(</B>GL_MODELVIEW_MATRIX<B>)</B><BR>
+<B>glGet(</B>GL_PROJECTION_MATRIX<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getmcolor</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getmmode</TD>
+<TD width=59%><B>glGet(</B>GL_MATRIX_MODE<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getmonitor</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getnurbsproperty </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_21h5.htm"><B>gluGetNurbsProperty</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getopenobj</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getorigin</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getpattern</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_2mw5.htm"><B>glGetPolygonStipple</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getplanes</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5ub8.htm"><B>glGet</B></A><B>(</B>GL_RED_BITS<B>)</B><BR>
+<B>glGet(</B>GL_GREEN_BITS<B>)</B><BR>
+<B>glGet(</B>GL_BLUE_BITS<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getport</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getresetls</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getscrbox</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getscrmask </TD>
+<TD width=59%><B>glGet(</B>GL_SCISSOR_BOX<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getshade</TD>
+<TD width=59%><B>glGet(</B>GL_CURRENT_INDEX<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getsize</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getsm</TD>
+<TD width=59%><B>glGet(</B>GL_SHADE_MODEL<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getvaluator</TD>
+<TD width=59%>Use Win32 for event handling</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getvideo</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getviewport</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5ub8.htm"><B>glGet</B></A><B>(</B>GL_VIEWPORT<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getwritemask</TD>
+<TD width=59%><B>glGet(</B>GL_INDEX_WRITEMASK<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getwscrn</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>getzbuffer</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7pgk.htm"><B>glIsEnabled</B></A><B>(</B>GL_DEPTH_TEST<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gexit</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gflush</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_8sa0.htm"><B>glFlush</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>ginit</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>glcompat</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>greset</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gRGBcolor</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5ub8.htm"><B>glGet</B></A><B>(</B>GL_CURRENT_RASTER_COLOR<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gRGBcursor</TD>
+<TD width=59%>Use Win32 for cursors.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gRGBmask</TD>
+<TD width=59%><B>glGet(</B>GL_COLOR_WRITEMASK<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gselect </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_2aeq.htm"><B>glSelectBuffer</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gsync</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>gversion</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_6dwn.htm"><B>glGetString</B></A><B>(</B>GL_RENDERER<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>iconsize</TD>
+<TD width=59%>Use Win32.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>icontitle</TD>
+<TD width=59%>Use Win32.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>imakebackground</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>initnames</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7k4z.htm"><B>glInitNames</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>ismex</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>isobj</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_01is.htm"><B>glIsList</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>isqueued</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>istag</TD>
+<TD width=59%>Not supported. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>keepaspect</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lampoff</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lampon</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>linesmooth</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_3l5x.htm"><B>glEnable</B></A><B>(</B>GL_LINE_SMOOTH<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>linewidth</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_75k8.htm"><B>glLineWidth</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>linewidthf</TD>
+<TD width=59%><B>glLineWidth</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lmbind</TD>
+<TD width=59%><B>glEnable(</B>GL_LIGHTING<B>)</B><BR>
+<B>glEnable(</B>GL_LIGHT<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lmcolor</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_58vg.htm"><B>glColorMaterial</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lmdef</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7cq4.htm"><B>glMaterial</B></A><BR>
+<A HREF="/library/psdk/opengl/glfunc03_88z8.htm"><B>glLight</B></A><BR>
+<A HREF="/library/psdk/opengl/glfunc03_3y5o.htm"><B>glLightModel</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>loadmatrix</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_3260.htm"><B>glLoadMatrix</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>loadname</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_4fxh.htm"><B>glLoadName</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>logicop</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7wkw.htm"><B>glLogicOp</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lookat </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_8wtw.htm"><B>gluLookAt</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lrectread </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_8m7n.htm"><B>glReadPixels</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lrectwrite(])</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_6lbn.htm"><B>glDrawPixels</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lRGBrange</TD>
+<TD width=59%>Not supported. (See <A HREF="/library/psdk/opengl/glfunc02_5rmv.htm"><B>glFog</B></A>.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lsbackup</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lsetdepth</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9bxh.htm"><B>glDepthRange</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lshaderange</TD>
+<TD width=59%>Not supported. (See <A HREF="/library/psdk/opengl/glfunc02_5rmv.htm"><B>glFog</B></A>.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>lsrepeat</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7sdh.htm"><B>glLineStipple</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>makeobj</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_2eyc.htm"><B>glNewList</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>maketag</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>mapcolor</TD>
+<TD width=59%>Use Win32 for color maps.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>mapw</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_4mno.htm"><B>gluProject</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>maxsize</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>minsize</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>mmode</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_4vs5.htm"><B>glMatrixMode</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>move</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>mswapbuffers</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>multimap</TD>
+<TD width=59%>Use Win32 for color maps.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>multmatrix</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_0xmg.htm"><B>glMultMatrix</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>n3f</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_5ru4.htm"><B>glNormal3fv</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>newpup</TD>
+<TD width=59%>Use Win32 for Menus.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>newtag</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>nmode</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_3l5x.htm"><B>glEnable</B></A><B>(</B>GL_NORMALIZE<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>noborder</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>noise</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>noport</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>normal</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_5ru4.htm"><B>glNormal3fv</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>nurbscurve</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_79ph.htm"><B>gluNurbsCurve</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>nurbssurface</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_6ftx.htm"><B>gluNurbsSurface</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>objdelete</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>objinsert</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>objreplace</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>onemap</TD>
+<TD width=59%>Use Win32 for color maps.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>ortho</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_8qnj.htm"><B>glOrtho</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>ortho2</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_5alg.htm"><B>gluOrtho2D</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>overlay</TD>
+<TD width=59%>Use Win32.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pagecolor</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>passthrough</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_5zmw.htm"><B>glPassThrough</B></A> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>patch</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_2rvs.htm"><B>glEvalMesh2</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>patchbasis</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_78s2.htm"><B>glMap2</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>patchcurves</TD>
+<TD width=59%><B>glMap2</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>patchprecision</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pclos</TD>
+<TD width=59%>Not supported. (See <A HREF="/library/psdk/opengl/glfunc01_9u3y.htm"><B>glEnd</B></A>.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pdr</TD>
+<TD width=59%>Not supported. (See <A HREF="/library/psdk/opengl/glfunc03_2kag.htm"><B>glVertex</B></A>.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>perspective</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_6m79.htm"><B>gluPerspective</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pick</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_2gqg.htm"><B>gluPickMatrix</B></A> <BR>
+<A HREF="/library/psdk/opengl/glfunc03_2aqt.htm"><B>glRenderMode</B></A><B>(</B>GL_SELECT<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>picksize </TD>
+<TD width=59%><B>gluPickMatrix</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pixmode</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_881e.htm"><B>glPixelTransfer</B></A> and 3</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pmv</TD>
+<TD width=59%>Not supported. (See <A HREF="/library/psdk/opengl/glfunc01_9u3y.htm"><B>glBegin</B></A> and <A HREF="/library/psdk/opengl/glfunc03_2kag.htm"><B>glVertex</B></A>.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pnt</TD>
+<TD width=59%><B>glBegin(</B>GL_POINTS<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pntsize</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_5m91.htm"><B>glPointSize</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pntsizef</TD>
+<TD width=59%><B>glPointSize</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pntsmooth</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_3l5x.htm"><B>glEnable</B></A><B>(</B>GL_POINT_SMOOTH<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>polarview</TD>
+<TD width=59%>Not supported. (See <A HREF="/library/psdk/opengl/glfunc03_21d1.htm"><B>glRotate</B></A> and <A HREF="/library/psdk/opengl/glfunc03_9a05.htm"><B>glTranslate</B></A>.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>polf</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>poly</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>polymode</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_9zol.htm"><B>glPolygonMode</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>polysmooth</TD>
+<TD width=59%><B>glEnable(</B>GL_POLYGON_SMOOTH<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>popattributes</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_68iq.htm"><B>glPopAttrib</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>popmatrix</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_246w.htm"><B>glPopMatrix</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>popname</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_72ud.htm"><B>glPopName</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>popviewport</TD>
+<TD width=59%><B>glPopAttrib</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>prefposition</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>prefsize</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pupmode</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pushattributes</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_68iq.htm"><B>glPushAttrib</B></A> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pushmatrix</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_246w.htm"><B>glPushMatrix</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pushname</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_72ud.htm"><B>glPushName</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pushviewport</TD>
+<TD width=59%><B>glPushAttrib(</B>GL_VIEWPORT<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>pwlcurve</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_2ov9.htm"><B>gluPWLCurve</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>qcontrol</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>qdevice</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>qenter</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>qgetfd</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>qread</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>qreset</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>qtest</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rcrv</TD>
+<TD width=59%>Not supported. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rcrvn</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rdr</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>readdisplay</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>readRGB</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>readsource</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_6hte.htm"><B>glReadBuffer</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rect</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_5o6s.htm"><B>glRect</B></A><BR>
+<A HREF="/library/psdk/opengl/glfunc03_9zol.htm"><B>glPolygonMode</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rectf</TD>
+<TD width=59%><B>glRect</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rectcopy </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_36ur.htm"><B>glCopyPixels</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rectread</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_8m7n.htm"><B>glReadPixels</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rectwrite</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_6lbn.htm"><B>glDrawPixels</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rectzoom</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_4mul.htm"><B>glPixelZoom</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>resetls</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>reshapeviewport</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>RGBcolor</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_62b6.htm"><B>glColor</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>RGBcursor</TD>
+<TD width=59%>Use Win32 for cursors.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>RGBmode</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>RGBrange</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>RGBwritemask</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_1fsb.htm"><B>glColorMask</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>ringbell</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rmv</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rot</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_21d1.htm"><B>glRotate</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rotate</TD>
+<TD width=59%><B>glRotate</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rpatch</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rpdr</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>rpmv</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>sbox</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_5o6s.htm"><B>glRect</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>scale</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_1691.htm"><B>glScale</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>sclear</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_8koi.htm"><B>glClear</B></A><B>(</B>GL_STENCIL_BUFFER_BIT<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>scrbox</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>screenspace</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>scrmask </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_4nxu.htm"><B>glScissor</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>scrnattach</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>scrnselect</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>scrsubdivide</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>select</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_2aqt.htm"><B>glRenderMode</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setbell</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setcursor </TD>
+<TD width=59%>Use Win32 for cursors.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setdblights</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setdepth</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_9bxh.htm"><B>glDepthRange</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setlinestyle</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7sdh.htm"><B>glLineStipple</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setmap</TD>
+<TD width=59%>Use Win32 for color maps.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setmonitor</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setnurbsproperty</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glufnc01_8nw9.htm"><B>gluNurbsProperty</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setpattern</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_1tr9.htm"><B>glPolygonStipple</B></A> </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setpup</TD>
+<TD width=59%>Use Win32 for menus.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setvaluator</TD>
+<TD width=59%>Use Win32 for devices.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>setvideo</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>shademodel</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_24rw.htm"><B>glShadeModel</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>shaderange</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_5rmv.htm"><B>glFog</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>singlebuffer</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>smoothline</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_3l5x.htm"><B>glEnable</B></A><B>(</B>GL_LINE_SMOOTH<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>spclos</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>splf</TD>
+<TD width=59%>Not supported. (See <A HREF="/library/psdk/opengl/glfunc01_9u3y.htm"><B>glBegin</B></A>.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>stencil</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_9t9f.htm"><B>glStencilFunc</B></A><BR>
+<A HREF="/library/psdk/opengl/glfunc03_5tm8.htm"><B>glStencilOp</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>stensize</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7e7f.htm"><B>glStencilMask</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>stepunit</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>strwidth</TD>
+<TD width=59%>Use Win32 for fonts and strings.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>subpixel</TD>
+<TD width=59%>Not needed.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>swapbuffers</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_1ss3.htm"><B>SwapBuffers</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>swapinterval</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>swaptmesh</TD>
+<TD width=59%>Not supported. <BR>
+(See <A HREF="/library/psdk/opengl/glfunc01_9u3y.htm"><B>glBegin</B></A><B>(</B>GL_TRIANGLE_FAN<B>)</B>.)</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>swinopen</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>swritemask</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_7e7f.htm"><B>glStencilMask</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>t2</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_6qck.htm"><B>glTexCoord2</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>tevbind </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_6xyu.htm"><B>glTexEnv</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>tevdef </TD>
+<TD width=59%><B>glTexEnv</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>texbind</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_16jo.htm"><B>glTexImage2D</B></A><BR>
+<A HREF="/library/psdk/opengl/glfunc03_9upe.htm"><B>glTexParameter</B></A><BR>
+<A HREF="/library/psdk/opengl/glufnc01_406r.htm"><B>gluBuild2DMipmaps</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>texdef2d</TD>
+<TD width=59%><B>glTexImage2D</B><BR>
+<B>glTexParameter</B><BR>
+<B>gluBuild2DMipmaps</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>texgen</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_73u6.htm"><B>glTexGen</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>textcolor</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>textinit</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>textport</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>tie</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>tpoff</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>tpon</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>translate</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_9a05.htm"><B>glTranslate</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>underlay</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_2qb8.htm"><B>ChoosePixelFormat</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>unqdevice</TD>
+<TD width=59%>Use Win32 for event handling.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>v</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_2kag.htm"><B>glVertex</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>videocmd</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>viewport</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_5ur8.htm"><B>glViewport</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winattach</TD>
+<TD width=59%>Use Win32 for windowing. </TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winclose</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_0g6s.htm"><B>wglDeleteContext</B></A><BR>
+<A HREF="/library/psdk/winui/windows_96wn.htm"><B>CloseWindow</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winconstraints</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>windepth</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>window </TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc02_0oj1.htm"><B>glFrustum</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winget</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/ntopnglr_667o.htm"><B>wglGetCurrentContext</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winmove</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winopen</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winpop</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winposition </TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winpush</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>winset</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>wintitle</TD>
+<TD width=59%>Use Win32 for windowing.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>wmpack</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_1fsb.htm"><B>glColorMask</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>writemask</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc03_5ajv.htm"><B>glIndexMask</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>writepixels</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_6lbn.htm"><B>glDrawPixels</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>writeRGB</TD>
+<TD width=59%><B>glDrawPixels</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>xfpt</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>zbuffer</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_3l5x.htm"><B>glEnable</B></A><B>(</B>GL_DEPTH_TEST<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>zclear</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_8koi.htm"><B>glClear</B></A><B>(</B>GL_DEPTH_BUFFER_BIT<B>)</B></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>zdraw</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>zfunction</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_5kkj.htm"><B>glDepthFunc</B></A></TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>zsource</TD>
+<TD width=59%>Not supported.</TD>
+</TR>
+
+<TR VALIGN="top">
+<TD width=41%>zwritemask</TD>
+<TD width=59%><A HREF="/library/psdk/opengl/glfunc01_35ij.htm"><B>glDepthMask</B></A></TD>
+</TR>
+</TABLE><BR>
+
+<P></P>
+<!--FOOTER_START-->
+<DIV CLASS="footer">
+<P>Built on Tuesday, December 05, 2000.</P>
+<HR SIZE="1" COLOR="0x00BB00">
+<P STYLE="color:#000000;font-size:130%;">To download the latest headers, libraries, and samples, see <A HREF="/library/psdk/sdkintro/usage_1817.htm">Obtaining the Complete SDK</A>.</P>
+<P STYLE="color:#000000;font-size:130%;"><A HREF="mailto:sdkfdbk@microsoft.com">Send feedback</A> to the Platform SDK.</P>
+<P><A HREF="http://www.microsoft.com/misc/cpyright.htm" TARGET="_top">&#169; 2000 Microsoft Corporation. All rights reserved. Terms of Use.</A></P>
+</DIV>
+<!--FOOTER_END-->
+</BODY>
+</HTML>
+

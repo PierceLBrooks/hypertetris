@@ -1,0 +1,32 @@
+Unknowns:
+
+getvaluator(MOUSE)  redo for mouse function Rotor.C lines 42 and 43
+
+getsize Rotor.C line 46 Main.C 118
+getorigin Rotor.C line 47 Main.C 119
+keepaspect Main.C line 146
+prefposition Main.C line 147
+
+winopen Main.C line 148
+winconstraints Main.C line 150
+qdevice Main.c lines 156 to 176 and line 276 no longer needed!
+RGBmode Main.C line 275
+reshapeviewport Main.C line 549 - not supported by web page
+
+
+tell mouse callback a temporary variable to use initally, then use
+
+equivocations:
+getmatrix can be glGet(GL_MODELVIEW_MATRIX) or GL_PROJECTION_MATRIX) in Rotor.C line 69 useing GL_MODELVIEW_MATRIX
+
+doublebuffer - probably enables double buffering, changed to ChoosePixelFormat which might or might not have the desired effect in Main.C line 275
+
+swapbuffers to SwapBuffers... needs to specify a device context and so... just converted in conversion... Main.C line 599
+
+
+NOTES:
+gconfig not needed with Open GL, removed call from Main.C line 275
+
+probably need to rework the whole keyboard while loop in Main.C
+
+pause/unpause already implemented???  Main.C line 528

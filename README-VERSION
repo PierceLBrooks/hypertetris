@@ -1,0 +1,80 @@
+Change Notes:
+
+Added new controls in SpecialKeyboard in Main.C so that program will respond to keypad with or without numlock on, which was a requirement before.
+
+Added key 'p' to pause the game.  This is sort of a cheat, but it will turn autofall OFF (or back ON if its already off).  Also, added CTRL-Middle Mouse button as the "reset" so that all the quadrants will begin rotating again.
+
+
+README-VERSION history:
+This version is a intermediate version in the attempt to port tetris to OpenGL,
+currently all of the "easy" conversions are implemented in Shared.h,
+but there are still IrisGL windowing commands in Rotor.C and main.C,
+the problem functions are documented in unknown.txt.
+
+About to start extracting segments from the main loop and moving the commands into the GLUT loop, in particular things like "holding" the ALT-8-2 can be redone with the keyboard callback in GLUT and key == '8' & '2' (after checking, glutGetModifiers() == GLUT_ACTIVE_ALT), i.e. with bit-wise ANDs.
+
+---------------------------
+
+Extracted all event coding into glut approved format. Changed over window code to glut windowing code.  Added CTRL-P as a command to pause the game that will let you rotate and translate pieces still, unlike a middle mouse button click, which will just freeze everything.
+
+New files such as keyboard.C and display.C are all intermediate files in the extraction of event code to event methods for GLUT. most things in unknown have become known.
+
+In order to handle the rotors (in the quad array) correctly in an event-driven style, had to re-write non-rotation code in the Rotor class, also had to add around 6 helper methods.
+
+Mouse in main was updated, as well, in order to implement much of the functionality found in the Rotor class.
+
+-------------------------
+
+Discovered that mouse coordinates are passed in as window-relative coordinates, this necessitated further changes in the Rotor class, as well as the MyQuad function in Main.C
+
+All IrisGL code should now be changed, though there are still MakeFile issues as well as the fact that I'm certain it doesn't compile due to silly coding errors on my part.
+
+-------------------------
+
+Got makefile working with the objects
+
+Had to rename the Rotor*[] quad to quadrant, as the quad identifer was already defined somewhere else
+
+imported cpack function from class01/ig2ogl/skel2.c or something like that
+provded blendfucntion with two of its defines converted to GL...
+two webpages of use to do that: 
+
+http://www.austin.ibm.com/idd500/usr/share/man/info/en_US/a_doc_lib/libs/gl32tref/blendfunction.htm
+and
+http://www.cevis.uni-bremen.de/~uwe/opengl/glBlendFunc.html
+
+working now with matrix manipulations in Rotor.C
+still not compiling
+
+----------
+More makefile problems.  The .C files all compile to .o files, but then they will not link together. new attempts are represented by htetris.mf, htetris.test, cpp.mf
+It appears as if the linker is not using the correct libraries.
+
+resolved final random compilation problems, including moving the function code from Shared.h to Shared.C allowing #ifndef to work correctly
+
+---------
+Got a working makefile.  On re-compile, esc key should work to exit the program.
+
+Appears some display code is not being processed correctly, because the image disappears as soon as the program is run.  File to run is tetris. 
+
+---------
+
+
+Really have a working makefile now... Just type make, and it should make an executeably called "tetris"
+
+fixed rotation problem, was resetting aff matrix to identity everytime in Rotor.C!  final conversion for code before testing interface is the transparacy issues with the board.  Should already be BLENDING with glBlendFunc, but current conversion for cpack (in Shared.C) does not specify alpha values, I am working on a new conversion)
+
+Fixed some memroy leaks in Rotor.C and Main.C... should delete more dynamically allocated stuff now, though there are probably more memory leaks in the program.
+
+
+-Benjamin Bernard
+
+
+
+
+
+
+
+
+
+

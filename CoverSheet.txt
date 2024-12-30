@@ -1,0 +1,18 @@
+Cover Sheet - HyperTetris
+
+Name: Benjamin Bernard
+Date: 5/9/01
+
+Project Name:
+hyperTetris
+
+Description:
+Converting Greg Kaiser's 4D Tetris from IrisGL to OpenGL, in addition to adding some functionality.  Doucmentation of changes in README-VERSION
+
+Location:
+rtica source: /afs/ncsa.uiuc.edu/projects/MATH198/bernard/public/tetris/
+rtica executable: /afs/ncsa.uiuc.edu/projects/MATH198/bernard/public/tetris/tetris
+
+Public Demo on: 5/9/01
+Docs submitted on: 5/9/01
+
