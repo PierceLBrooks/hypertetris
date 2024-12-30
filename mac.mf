@@ -1,0 +1,15 @@
+GLUTINCS = -I/System/Library/Frameworks/GLUT.framework/Versions/A/Headers -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers
+
+GLUTLIBS = -L/usr/local/lib -L/System/Library/Frameworks/OpenGL.framework/Libraries -lGL -lGLU -lobjc -lm
+
+#DEFS = -DZLIB -DCAVE -DSOUND
+DEFS = -DMAC_OS_X
+
+COPTS = -O
+CC = gcc
+
+CFLAGS = ${COPTS} ${DEFS} -I/usr/include/sys ${GLUTINCS}
+LDFLAGS = ${COPTS} ${ZLIBS} ${GLUTLIBS} -framework GLUT
+
+.c:
+	${CC} -o $@ $*.c ${CFLAGS} ${LDFLAGS}

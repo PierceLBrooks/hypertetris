@@ -8,8 +8,8 @@
 //
 // (C) 1996 Board of Trustees University of Illinois
 
-#include <device.h>
-#include <GL/glut.h>
+// #include <device.h>
+#include <glut.h>
 #include "Shared.h"
 
 class Rotor {

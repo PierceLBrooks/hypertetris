@@ -9,11 +9,16 @@
 //
 // (C) 1996 Board of Trustees University of Illinois
 
+#include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 #include <sys/time.h>
-// #include <device.h>
-#include <GL/glut.h>
-#include <GL/gl.h>
-#include <iostream.h>
+// #include <device.h> from Irix
+//#include <GL/glut.h>
+//#include <GL/gl.h>
+// #include <gl.h>
+#include <glut.h>
 #include <strings.h>
 #include <math.h>
 #include "Board.h"
@@ -21,8 +26,14 @@
 #include "GenPiece.h"
 #include "Pieces.h"
 #include "Rotor.h"
+#include "DList.h"	// unnecessary?
+#include "Hyper.h"	// unnecessary?
 
 #define SOAK(K)  while(getbutton(K))
+
+// How do we instantiate a template?  Just name one?
+#include "DList.C"  // ugh
+template class DList<Hyper>;
 
 int *DIM;
 float *LEN;
@@ -762,7 +773,7 @@ void Reshape(int width, int height)
 }
 
 
-void main(int argc, char **argv)
+int main(int argc, char **argv)
 {
   cout << "\n\nHyperTetris\n    by\nGreg Kaiser\n" << endl;
   cout << "(C) 1996 Board of Trustees University of Illinois\n" << endl;

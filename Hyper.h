@@ -11,7 +11,7 @@
 #ifndef _HYPER_H_
 #define _HYPER_H_
 
-#include <GL/glut.h>
+#include <glut.h>
 #include "FourD.h"
 #include "Asserts.h"
 #include "Board.h"

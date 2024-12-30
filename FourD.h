@@ -13,7 +13,7 @@
 
 #include "Asserts.h"
 #include "Shared.h"
-#include <GL/glut.h>
+#include <glut.h>
 
 class FourD
 {

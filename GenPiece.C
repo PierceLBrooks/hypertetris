@@ -61,8 +61,8 @@ int **GenPiece::CanRotate(int dir, int dude, int sign)
   int dircenter, dudecenter;
   
   if (centerstat < 0) { // center is messed up
-    dircenter = (int)(ffloor((((*center)[dir] - botcorner[dir])/LEN[dir])+.5));
-    dudecenter = (int)(ffloor((((*center)[dude] - botcorner[dude])/LEN[dude]) 
+    dircenter = (int)(floor((((*center)[dir] - botcorner[dir])/LEN[dir])+.5));
+    dudecenter = (int)(floor((((*center)[dude] - botcorner[dude])/LEN[dude]) 
 			      + .5));
 
   } else { // center is (0,0)

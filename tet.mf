@@ -1,0 +1,42 @@
+OBJS =  Main.o\
+        FourD.o\
+        Hyper.o\
+        Asserts.o\
+        Board.o\
+        GenPiece.o\
+        CubePiece.o\
+        DList.o\
+        LPiece.o\
+        StraightPiece.o\
+        TPiece.o\
+        SPiece.o\
+        CornerPiece.o\
+        TwistyPiece.o\
+        ZPiece.o\
+        ThreeLinePiece.o\
+        TriPiece.o\
+        TwoPiece.o\
+        SimplePiece.o\
+        Rotor.o\
+	Shared.o
+
+GLUTINCS = -I/System/Library/Frameworks/GLUT.framework/Versions/A/Headers -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers
+
+GLUTLIBS = -L/usr/local/lib -L/System/Library/Frameworks/OpenGL.framework/Libraries -lGL -lGLU -lobjc -lm
+
+DEFS = -DMAC_OS_X
+
+COPTS = -O -g -fno-implicit-templates
+CC = g++
+
+CXXFLAGS = ${COPTS} ${DEFS} ${GLUTINCS}
+LDFLAGS = ${COPTS} ${ZLIBS} ${GLUTLIBS} -framework GLUT
+
+all: 4Dtetris
+
+4Dtetris: $(OBJS) 
+	${CC} -o $@ $(OBJS) $(CXXFLAGS) $(LDFLAGS) 
+
+
+
+

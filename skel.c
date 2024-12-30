@@ -21,7 +21,7 @@
 #define  S(u)          sin(u*DG)
 #define  C(u)          cos(u*DG)
 #define  CLAMP(x,u,v) (x<u? u : (x>v ? v: x))
-// global variables 
+/* global variables */
 float gap, gap0=1.; /* kludge so that arguments() can set a default gap0 */
 float lux[3]={1.,2.,3.};             /*world light direction vector     */
 float luxx[3];                       /*  object space  direction vector*/
@@ -30,7 +30,7 @@ float mysiz,speed, torq, focal, far; /*console navigation variables         */
 int win = 1;                   /* 2 full screen, use 0 for demand sized */
 unsigned int BUT, XX, YY,SHIF;     /* used in chaptrack gluttery           */ 
 int xt,yt;                       /* once was xt,yt,xm,ym for viewportery */
-int mode,morph,msg;            /* pretty global */
+int mode,morph,msg,binoc;            /* pretty global */
 int th0, th1, dth, ta0, ta1, dta;    /* torus parameters */
 #define FLYMODE  (0)
 #define TURNMODE (1) 
@@ -53,12 +53,12 @@ void autotymer(int reset){ /* cheap animations */
   Break:   ;   /* yes Virginia, C has gotos */
 }
 /**********************************************************************/
-void deFault(void){
+void deFault(void){ float tmp; 
 th0=5; th1=355;  ta0=5; ta1=355; gap = gap0; 
 msg=1; binoc=0; nose=.06; mode=TURNMODE;  
 speed=.1; torq=.02; focal = 2.; far =13.; mysiz=.01; morph=0; 
 FOR(ii,0,16) starmat[ii]=aff[ii] = (ii/4==ii%4);   /* identities */ 
-FOR(ii,0,3)lux[ii]/=NRM(lux); amb = .3; pwr = 10. ;
+tmp=NRM(lux); FOR(ii,0,3)lux[ii]/=tmp; amb = .3; pwr = 10. ;
 aff[12]=0; aff[13]= 0; aff[14]= -4.2;   /* place where we can see it */
 autotymer(1); /* reset autotymer to start at the beginning */
 }
@@ -306,4 +306,3 @@ int main(int argc, char **argv){
        glutMainLoop();
 }
  
-

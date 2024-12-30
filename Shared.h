@@ -48,7 +48,8 @@
 //#define clear() glClear(GL_COLOR_BUFFER_BIT) // has problems with clear in the iostream library
 #define zclear() glCear(GL_DEPTH_BUFFER_BIT)
 
-#include <GL/gl.h>
+#include <glut.h>
+// #include <GL/gl.h>
 
 
 void getmatrix(float* mat);

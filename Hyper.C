@@ -13,6 +13,9 @@
 //#define DEBUG_HYPER
 
 #include "Hyper.h"
+#include "DList.h"
+
+DList<Hyper> junk;	// is this how to instantiate this template??
 
 extern Board *board;
 extern float *LEN;
