@@ -75,12 +75,12 @@ void InitGlobals()
   numremoved =0;
 
   DIM = new int[4];
-  for (i = 0; i < 4; i++)
+  for (int i = 0; i < 4; i++)
     DIM[i] = dims[i];
   LEN = new float[4];
   LEN[X] = LEN[Y] = LEN[Z] = LEN[W] = 4.5 / (float)(DIM[W]);
   botcorner = new float[4];
-  for (i = 0; i < 4; i++)
+  for (int i = 0; i < 4; i++)
     botcorner[i] = -2.0 + ((4.0 - LEN[i] * DIM[i]) / 2);
   board = new Board();
 }
@@ -146,9 +146,9 @@ GenPiece *NewPiece(int numpieces, int *mypieces)
 void EndGame(int endState)
 {
   if (gameon == 0) 
-    cout << "Game Over, Man!" << endl;
+    std::cout << "Game Over, Man!" << std::endl;
   else
-    cout << "Thanks for playing" << endl;
+    std::cout << "Thanks for playing" << std::endl;
 
 
   //delete DIM; //program crashes when this line is run, instead of ending
@@ -800,8 +800,8 @@ void Reshape(int width, int height)
 
 int main(int argc, char **argv)
 {
-  cout << "\n\nHyperTetris\n    by\nGreg Kaiser\n" << endl;
-  cout << "(C) 1996 Board of Trustees University of Illinois\n" << endl;
+  std::cout << "\n\nHyperTetris\n    by\nGreg Kaiser\n" << std::endl;
+  std::cout << "(C) 1996 Board of Trustees University of Illinois\n" << std::endl;
 
   glutInit(&argc, argv);
   glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH | GLUT_RGB);
@@ -852,10 +852,10 @@ int main(int argc, char **argv)
       SHADEUNDER = 1;
 
     else {
-      cout << endl;
-      cout << "The command line argument " << argv[i] << " isn't recognized.";
-      cout << endl << "Please see the README file for acceptable arguments.";
-      cout << endl << "Thank you.  Have a nice day!" << endl;
+      std::cout << std::endl;
+      std::cout << "The command line argument " << argv[i] << " isn't recognized.";
+      std::cout << std::endl << "Please see the README file for acceptable arguments.";
+      std::cout << std::endl << "Thank you.  Have a nice day!" << std::endl;
     }
 
     i++;

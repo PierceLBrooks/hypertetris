@@ -49,7 +49,7 @@ void DList<T>::Output()
 {
   Node<T> *Temp = head;
   while (Temp != NULL) {
-    cout << Temp->data << endl;
+    std::cout << Temp->data << std::endl;
     Temp = Temp->next;
   }
 }

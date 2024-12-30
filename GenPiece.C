@@ -10,7 +10,7 @@
 
 #include "GenPiece.h"
 #include <math.h>
-#include <iostream.h>
+#include <iostream>
 
 //#define DEBUG_GENPIECE
 
@@ -56,7 +56,7 @@ int **GenPiece::CanRotate(int dir, int dude, int sign)
   for (int i = 0; i < numcubes; i++)
     newpos[i] = new int[4];
   
-  i = 0;
+  int i = 0;
   int boolean = 1;
   int dircenter, dudecenter;
   
@@ -141,7 +141,7 @@ void GenPiece::Rotate(int dir, int dude, int sign)
     for (int i = 0; i < numcubes; i++)
       cubes[i]->Rotate(newpos[i], center, dir, dude, sign);
 
-    for (i = 0; i < numcubes; i++)
+    for (int i = 0; i < numcubes; i++)
       delete newpos[i];
     delete newpos;
   }
@@ -167,7 +167,7 @@ int GenPiece::Translate(int dir, int sign)
   for (int i = 0; i < numcubes; i++)
     newpos[i] = new int[4];
 
-  i = 0;
+  int i = 0;
   int boolean = 1;
   while (boolean && (i < numcubes))
     if ((cubes[i]->GetPos()[dir] + sign) == edge) 
@@ -182,12 +182,12 @@ int GenPiece::Translate(int dir, int sign)
     }
 
   if (boolean) {
-    for (i = 0; i < numcubes; i++)
+    for (int i = 0; i < numcubes; i++)
       cubes[i]->Translate(dir, sign);
 
 /*
     cout << endl;
-    for (i = 0; i < numcubes; i++)
+    for (int i = 0; i < numcubes; i++)
       for (int j = 0; j < 4; j++)
 	cout << "boardpos["<<i<<"]["<<j<<"] = "<<cubes[i]->GetPos()[j] << endl;
 */
@@ -199,7 +199,7 @@ int GenPiece::Translate(int dir, int sign)
     center->Translate(xx, yy, zz, ww);
     }
   
-  for (i = 0; i < numcubes; i++)
+  for (int i = 0; i < numcubes; i++)
     delete newpos[i];
   delete newpos;
 
@@ -261,7 +261,7 @@ void GenPiece::Drawit(int axes)
     cubes[i]->Drawit(axes);
 
   if (axes != 7)
-    for (i = 0; i < numcubes; i++)
+    for (int i = 0; i < numcubes; i++)
       cubes[i]->Drawit2D(axes);
 
 #ifdef DEBUG_GENPIECE

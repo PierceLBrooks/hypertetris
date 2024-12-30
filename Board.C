@@ -34,11 +34,11 @@ Board::Board()
   }
 
   float *topcorner = new float[4];
-  for (i = 0; i < 4; i++)
+  for (int i = 0; i < 4; i++)
     topcorner[i] = botcorner[i] + .01 + DIM[i] * LEN[i];
 
   float temp[16][4];
-  for (i = 0; i < 16; i++) {
+  for (int i = 0; i < 16; i++) {
     for (int j = 0; j < 4; j++)
       temp[i][j] = ((i & (1<<(3-j))) ? (botcorner[j] - .01) : topcorner[j]);
   }
@@ -46,12 +46,12 @@ Board::Board()
   delete topcorner;
 
   bottom = new FourD*[8];
-  for (i = 0; i < 8; i++)
+  for (int i = 0; i < 8; i++)
     bottom[i] = new FourD(temp[(15 - 2 * i)]);
 
 
   top = new FourD*[8];
-  for (i = 0; i < 8; i++)
+  for (int i = 0; i < 8; i++)
     top[i] = new FourD(temp[14 - 2*i]);
 
   fallen = new DList<Hyper>();
@@ -75,7 +75,7 @@ Board::~Board()
 
   delete fallen;
 
-  for (i = 0; i < 8; i++) {
+  for (int i = 0; i < 8; i++) {
     delete bottom[i];
     delete top[i];
   }
@@ -277,36 +277,36 @@ void Board::Drawit(int axes)
     // cout << "Number is: " << 0x66ffffff << endl;
 
     bgntmesh();
-    for (i = 4; i < 4; i++)
+    for (int i = 4; i < 4; i++)
       bottom[i]->Plot(axis, dist);
     endtmesh();
     
     bgntmesh();
-    for (i = 4; i < 8; i++)
+    for (int i = 4; i < 8; i++)
       bottom[i]->Plot(axis, dist);
     endtmesh();
 
     bgntmesh();
-    for (i = 0; i < 2; i++)
+    for (int i = 0; i < 2; i++)
       bottom[i]->Plot(axis, dist);
-    for (i = 4; i < 6; i++)
-      bottom[i]->Plot(axis, dist);
-    endtmesh();
-    
-    bgntmesh();
-    for (i = 2; i < 4; i++)
-      bottom[i]->Plot(axis, dist);
-    for (i = 6; i < 8; i++)
+    for (int i = 4; i < 6; i++)
       bottom[i]->Plot(axis, dist);
     endtmesh();
     
     bgntmesh();
-    for (i = 0; i < 8; i += 2)
+    for (int i = 2; i < 4; i++)
+      bottom[i]->Plot(axis, dist);
+    for (int i = 6; i < 8; i++)
       bottom[i]->Plot(axis, dist);
     endtmesh();
     
     bgntmesh();
-    for (i = 1; i < 8; i += 2)
+    for (int i = 0; i < 8; i += 2)
+      bottom[i]->Plot(axis, dist);
+    endtmesh();
+    
+    bgntmesh();
+    for (int i = 1; i < 8; i += 2)
       bottom[i]->Plot(axis, dist);
     endtmesh();
 

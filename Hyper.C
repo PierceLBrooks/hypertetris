@@ -8,7 +8,7 @@
 //
 // (C) 1996 Board of Trustees University of Illinois
 
-#include <iostream.h> // for debugging only
+#include <iostream> // for debugging only
 
 //#define DEBUG_HYPER
 
@@ -49,7 +49,7 @@ Hyper::Hyper(float low, float high, int *newpos)
   }
 
   boardpos = new int[4];
-  for (ii = 0; ii < 4; ii++)  {
+  for (int ii = 0; ii < 4; ii++)  {
     if (ii != W)
       Assert(newpos[ii] < DIM[ii], "Piece doesn't fit on board");
     boardpos[ii] = newpos[ii];
@@ -75,7 +75,7 @@ Hyper::Hyper(float *low, float *high, int *newpos)
   }
 
   boardpos = new int[4];
-  for (ii = 0; ii < 4; ii++) {
+  for (int ii = 0; ii < 4; ii++) {
     if (ii != W)
       Assert((newpos[ii] < DIM[ii]) && (newpos[ii] >= 0), 
 	     "Piece doesn't fit on board");
@@ -370,14 +370,14 @@ void Hyper::Drawit2D(int axes)
 
   switch (axes) {
   case 11: // wxy
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[i][0] = wcoord;
-    for (i = 4; i < 8; i++)
+    for (int i = 4; i < 8; i++)
       mypoints[i][0] = wcoord2;
 
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[2*i][1] = (*pts[0])[X];
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[2*i+1][1] = (*pts[15])[X];
 
     //mypoints[0][1] = mypoints[2][1] = (*pts[0])[X];
@@ -389,14 +389,14 @@ void Hyper::Drawit2D(int axes)
     break;
   
   case 13: // zwx
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[i][1] = wcoord;
-    for (i = 4; i < 8; i++)
+    for (int i = 4; i < 8; i++)
       mypoints[i][1] = wcoord2;
 
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[2*i][0] = (*pts[0])[Z];
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[2*i+1][0] = (*pts[15])[Z];
     
     //mypoints[0][0] = mypoints[2][0] = (*pts[0])[Z];
@@ -408,14 +408,14 @@ void Hyper::Drawit2D(int axes)
     break;
   
   case 14: // yzw
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[i][2] = wcoord;
-    for (i = 4; i < 8; i++)
+    for (int i = 4; i < 8; i++)
       mypoints[i][2] = wcoord2;
 
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[2*i][0] = (*pts[0])[Y];
-    for (i = 0; i < 4; i++)
+    for (int i = 0; i < 4; i++)
       mypoints[2*i+1][0] = (*pts[15])[Y];
 
     //mypoints[0][0] = mypoints[2][0] = (*pts[0])[Y];
@@ -433,13 +433,13 @@ void Hyper::Drawit2D(int axes)
   //  glColor4f(.2,.2,.2,.1);
   glColor4f(1,1,1,.1);
   bgntmesh();
-  for (i = 0; i < 4; i++)
+  for (int i = 0; i < 4; i++)
     v3f(mypoints[i]);
   endtmesh();
 
   if (SHADEUNDER) {
     bgntmesh();
-    for (i = 4; i < 8; i++)
+    for (int i = 4; i < 8; i++)
       v3f(mypoints[i]);
     endtmesh();
   }
@@ -464,7 +464,7 @@ void Hyper::Rotate(int *newpos, FourD *center, int dir, int dude, int sign)
   for (int i = 0; i < 16; i++)
     pts[i]->Rotate(center, dir, dude, sign);
 
-  for (i = 0; i < 4; i++)
+  for (int i = 0; i < 4; i++)
     boardpos[i] = newpos[i];
 
 #ifdef DEBUG_HYPER

@@ -16,7 +16,7 @@
 #define ASSERTS_H
 
 #include <stdlib.h>   // for the exit(1)
-#include <iostream.h>
+#include <iostream>
 
 void Assert(int SafeCondition, char* ErrMsg);
 

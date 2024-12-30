@@ -11,7 +11,7 @@
 
 #define DEADZONE 40
 
-#include <iostream.h>
+#include <iostream>
 #include "Rotor.h"
 #define ABS(x) ((x>0)?x:-x)
 #define IFSHIFT  if(getbutton(LEFTSHIFTKEY)||getbutton(RIGHTSHIFTKEY))

@@ -11,7 +11,7 @@
 #ifndef _DLIST_H_
 #define _DLIST_H_
 
-#include <iostream.h>
+#include <iostream>
 #include "Asserts.h"
 class Hyper;
 

@@ -26,13 +26,13 @@ SimplePiece::SimplePiece() : GenPiece(1)
   float *high = new float[4];
   float *low = new float[4];
 
-  for (i = 0; i < 4; i++) {
+  for (int i = 0; i < 4; i++) {
     low[i] = botcorner[i] + dudeman[i] * LEN[i];
     high[i] = low[i] + LEN[i];
   }
 
   float *temp = new float[4];
-  for (i = 0; i < 4; i++)
+  for (int i = 0; i < 4; i++)
     temp[i] = (low[i] + high[i]) / 2;
 
   center = new FourD(temp);

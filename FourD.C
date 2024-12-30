@@ -8,7 +8,7 @@
 //
 // (C) 1996 Board of Trustees University of Illinois
 
-#include <iostream.h> // for debugging purposes only
+#include <iostream> // for debugging purposes only
 
 #include "FourD.h"
 
@@ -61,11 +61,11 @@ void FourD::Output()
 #endif
 
   for (int i =0; i < 4; i++)
-    cout << pt[i] << " ";
-  cout << endl;
+    std::cout << pt[i] << " ";
+  std::cout << std::endl;
 
 #ifdef DEBUG_FOURD
-  cout << "End FourD::Output()" << endl;
+  std::cout << "End FourD::Output()" << endl;
 #endif
 }
 

@@ -8,7 +8,7 @@
 //
 // (C) 1996 Board of Trustees University of Illinois
 
-#include <iostream.h>
+#include <iostream>
 #include "Rotor.h"
 
 
