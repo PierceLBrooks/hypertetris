@@ -1,0 +1,16 @@
+13jan05
+Picked up the .zip in Bernard's public directory, the one
+he points to on his webpage, but I suppressed for privacy.
+I cleaned out the .o and executables, and removed the 
+historical zips, and rezipped a provisionally clean copy. 
+
+It took Stuart Levy a good hour to get this to compile on
+the Mac. Not all modifications are documented, unhappily.
+
+There are several .zip snapshots of the progress of changes.
+4Dtetris is the first and does not compile
+hypertetris is the one Stuart made to compile
+nutetris is where Mike made changes
+Currently nutetris is the latest, but they'll be renamed.
+
+
