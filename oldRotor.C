@@ -1,4 +1,3 @@
-// Pelsmajer 13jan04
 // Greg Kaiser
 //
 // CS290 with Prof. Francis
@@ -9,10 +8,10 @@
 //
 // (C) 1996 Board of Trustees University of Illinois
 
-#define DEADZONE 40
-
 #include <iostream.h>
 #include "Rotor.h"
+
+
 #define ABS(x) ((x>0)?x:-x)
 #define IFSHIFT  if(getbutton(LEFTSHIFTKEY)||getbutton(RIGHTSHIFTKEY))
 #define PRESS(K,A,b)   if(getbutton(K)){IFSHIFT{A;}else{b;}}
@@ -68,15 +67,9 @@ void Rotor::Rotate()
     if(dy!= 0.0)
       dy -= yt/2;
 
-    //    dx = ((-20 < dx) &&(20 > dx) ? 0 : dx);    
-    //    dy = ((-20 < dy) &&(20 > dy) ? 0 : dy);
-    if( -DEADZONE >= dx)dx+=19;
-    else if(DEADZONE<=dx)dx-=19;
-    else dx=0;
-    if( -DEADZONE >= dy)dy+=19;
-    else if(DEADZONE<=dy)dy-=19;
-    else dy=0;
-    //
+    dx = ((-20 < dx) &&(20 > dx) ? 0 : dx);    
+    dy = ((-20 < dy) &&(20 > dy) ? 0 : dy);
+    
     dy = -dy;
   }  
 
@@ -87,7 +80,7 @@ void Rotor::Rotate()
   translate(aff[12],aff[13],aff[14]);
   
   if (active) {
-    float torq = .005;
+    float torq = .01;
     rot(dx*torq,'y'); rot(-dy*torq, 'x');
     if(isMouseRightDown)
       {

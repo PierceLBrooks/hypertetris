@@ -5,13 +5,9 @@
 // 4D Tetris
 //
 // Main.C
-// modified: April 30, 2001 by Benjamin Bernard
+// Last modified: April 30, 2001 by Benjamin Bernard
 //
-// (C) 1996-2005 Board of Trustees University of Illinois
-// modified: 13jan04 S Levy, Pelsmajer and Francis
-
-#define DEADZONE 40     //no use, doesn't propagate to Rotor.C
-#define SQUARE   0.4
+// (C) 1996 Board of Trustees University of Illinois
 
 #include <iostream>
 #include <stdio.h>
@@ -728,34 +724,13 @@ void Display()
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   // put the x, y, z axes in the upper right hand corner (quad 1)
-
-  
-  pushmatrix();
-  glColor3f(.5,.5,.5);
-  glBegin(GL_LINE_STRIP);
-  glVertex3f(SQUARE,SQUARE,0);
-  glVertex3f(SQUARE,-SQUARE,0);
-  glVertex3f(-SQUARE,-SQUARE,0);
-  glVertex3f(-SQUARE,SQUARE,0);
-  glVertex3f(SQUARE,SQUARE,0);
-  glEnd();
-  glBegin(GL_LINE_STRIP);
-  glVertex3f(-SQUARE,0,0);
-  glVertex3f(SQUARE,0,0);
-  glEnd();
-  glBegin(GL_LINE_STRIP);
-  glVertex3f(0,-SQUARE,0);
-  glVertex3f(0, SQUARE,0);
-  glEnd();
-  
-  popmatrix();
-
   pushmatrix();
   translate(2.5, 2.5, 0.0);
   quadrant[1]->Rotate();
   dude->Drawit(7);
   board->Drawit(7);
   popmatrix();
+  
   // put the w, x, y axes in the upper left hand corner (quadrant 0)
   pushmatrix();
   translate(-2.5, 2.5, 0.0);
@@ -779,7 +754,7 @@ void Display()
   dude->Drawit(14);
   board->Drawit(14);
   popmatrix();
- 
+  
   swapbuffers();
 }
 
@@ -886,8 +861,7 @@ int main(int argc, char **argv)
   if(AUTOFALL) 
     {
       glutTimerFunc(((fallsec*1000) + (fallusec/1000)), Timer, 1);
-    }
- 
+    } 
   glutDisplayFunc(Display);
   glutKeyboardFunc(Keyboard);
   glutSpecialFunc(SpecialKeyboard);

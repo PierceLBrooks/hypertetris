@@ -1,0 +1,38 @@
+g++ -O -g  -DMAC_OS_X -I/usr/include/sys -I/System/Library/Frameworks/GLUT.framework/Versions/A/Headers -I/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers   -c -o Main.o Main.C
+In file included from /usr/include/gcc/darwin/3.3/c++/cwchar:51,
+                 from /usr/include/gcc/darwin/3.3/c++/bits/fpos.h:45,
+                 from /usr/include/gcc/darwin/3.3/c++/iosfwd:49,
+                 from /usr/include/gcc/darwin/3.3/c++/ios:44,
+                 from /usr/include/gcc/darwin/3.3/c++/ostream:45,
+                 from /usr/include/gcc/darwin/3.3/c++/iostream:45,
+                 from /usr/include/gcc/darwin/3.3/c++/backward/iostream.h:32,
+                 from Main.C:18:
+/usr/include/gcc/darwin/3.3/c++/ctime:68: error: `tm' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:70: error: `clock' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:71: error: `difftime' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:72: error: `mktime' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:73: error: `time' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:74: error: `asctime' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:75: error: `ctime' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:76: error: `gmtime' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:77: error: `localtime' not declared
+/usr/include/gcc/darwin/3.3/c++/ctime:78: error: `strftime' not declared
+In file included from Board.h:14,
+                 from Main.C:21:
+Shared.h:51:19: GL/gl.h: No such file or directory
+In file included from Board.h:15,
+                 from Main.C:21:
+Hyper.h:14:21: GL/glut.h: No such file or directory
+In file included from Hyper.h:15,
+                 from Board.h:15,
+                 from Main.C:21:
+FourD.h:16:21: GL/glut.h: No such file or directory
+In file included from Main.C:25:
+Rotor.h:11:20: device.h: No such file or directory
+Rotor.h:12:21: GL/glut.h: No such file or directory
+Main.C: In function `void InitGlobals()':
+Main.C:65: warning: name lookup of `i' changed for new ISO `for' scoping
+Main.C:50: warning:   using obsolete binding at `i'
+Main.C: At global scope:
+Main.C:768: error: `main' must return `int'
+make: *** [Main.o] Error 1

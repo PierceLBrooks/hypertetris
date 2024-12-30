@@ -9,10 +9,10 @@
 //
 // (C) 1996 Board of Trustees University of Illinois
 
-#define DEADZONE 40
-
 #include <iostream.h>
 #include "Rotor.h"
+
+
 #define ABS(x) ((x>0)?x:-x)
 #define IFSHIFT  if(getbutton(LEFTSHIFTKEY)||getbutton(RIGHTSHIFTKEY))
 #define PRESS(K,A,b)   if(getbutton(K)){IFSHIFT{A;}else{b;}}
@@ -70,11 +70,11 @@ void Rotor::Rotate()
 
     //    dx = ((-20 < dx) &&(20 > dx) ? 0 : dx);    
     //    dy = ((-20 < dy) &&(20 > dy) ? 0 : dy);
-    if( -DEADZONE >= dx)dx+=19;
-    else if(DEADZONE<=dx)dx-=19;
+    if( -20 >= dx)dx+=19;
+    else if(20<=dx)dx-=19;
     else dx=0;
-    if( -DEADZONE >= dy)dy+=19;
-    else if(DEADZONE<=dy)dy-=19;
+    if( -20 >= dy)dy+=19;
+    else if(20<=dy)dy-=19;
     else dy=0;
     //
     dy = -dy;
@@ -88,7 +88,7 @@ void Rotor::Rotate()
   
   if (active) {
     float torq = .005;
-    rot(dx*torq,'y'); rot(-dy*torq, 'x');
+    rot((int)(dx*torq),'y'); rot(-(int)(dy*torq), 'x');
     if(isMouseRightDown)
       {
 	if(isShiftDown)

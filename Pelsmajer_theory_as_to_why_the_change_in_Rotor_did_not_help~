@@ -1,0 +1,3 @@
+Since rot() has an integer-valued rotation parameter, the smallest rotation speed is "1", whatever that means.  Well, if you run 4Dtetris and mess with the mouse, you'll see that there is a significant range of the mouse position that produces the smallest rotation speed - this corresponds to "1".  Really, there are only a few integer values that are used.  
+ 
+The reason that nuRotor.C has a larger dead zone is because the parameter*torq is too close to zero there, so is cast as zero.

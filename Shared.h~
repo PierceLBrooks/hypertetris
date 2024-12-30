@@ -58,7 +58,7 @@ void rectcopy(int x1, int y1, int x2, int y2, int newx, int newy);
 
 void cpack(long hexad);
 
-void rot(float degrees, char axis);
+void rot(int degrees, char axis);
 
 
 void lrectwrite(int x1, int y1, int x2, int y2, unsigned long* offbase);

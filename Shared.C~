@@ -3,7 +3,7 @@
 //
 // Shared.C
 // Last modified: May8th, 2001 - Benjamin Bernard
-// and again 13jan04 by Mike Pelsmajer, and gkf.
+//
 
 
 #include "Shared.h"
@@ -23,8 +23,7 @@ void cpack(long hexad){
    glColor3f(red,green,blue);
  }
 
-//Pelsmajer: changed degrees from int to float jan13/05
-void rot(float degrees, char axis)
+void rot(int degrees, char axis)
 {
   if(axis == 'x')
     glRotatef(degrees, 1.,0.,0.);

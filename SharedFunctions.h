@@ -25,7 +25,8 @@ void cpack(long hexad){
    glColor3f(red,green,blue);
  }
 
-void rot(int degrees, char axis)
+//Pelsmajer changed int to float Jan13-05
+void rot(float degrees, char axis)
 {
   if(axis == 'x')
     glRotatef(degrees, 1.,0.,0.);
