@@ -17,13 +17,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#ifndef _WIN32
 #include <sys/time.h>
+#endif
 // #include <device.h> from Irix
 //#include <GL/glut.h>
 //#include <GL/gl.h>
 // #include <gl.h>
 #include <glut.h>
+#ifndef _WIN32
 #include <strings.h>
+#endif
 #include <math.h>
 #include "Board.h"
 #include "Shared.h"
@@ -36,7 +40,7 @@
 #define SOAK(K)  while(getbutton(K))
 
 // How do we instantiate a template?  Just name one?
-#include "DList.C"  // ugh
+#include "DList.CC"  // ugh
 template class DList<Hyper>;
 
 int *DIM;
@@ -65,8 +69,8 @@ void InitGlobals()
 
   AUTOFALL = 1;
   dims = new int[4];
-  dims[X] = dims[Y] = dims[Z] = 4;
-  dims[W] = 10;
+  dims[VX] = dims[VY] = dims[VZ] = 4;
+  dims[VW] = 10;
   ONE_TURN_AT_A_TIME = 1;
   fallsec =  4;
   fallusec = 0;
@@ -78,7 +82,7 @@ void InitGlobals()
   for (int i = 0; i < 4; i++)
     DIM[i] = dims[i];
   LEN = new float[4];
-  LEN[X] = LEN[Y] = LEN[Z] = LEN[W] = 4.5 / (float)(DIM[W]);
+  LEN[VX] = LEN[VY] = LEN[VZ] = LEN[VW] = 4.5 / (float)(DIM[VW]);
   botcorner = new float[4];
   for (int i = 0; i < 4; i++)
     botcorner[i] = -2.0 + ((4.0 - LEN[i] * DIM[i]) / 2);
@@ -87,7 +91,12 @@ void InitGlobals()
   
 GenPiece *NewPiece(int numpieces, int *mypieces)
 {
+#ifndef _WIN32
   int piecenum = mypieces[(random() % numpieces)];
+#else
+	srand(time(NULL));
+  int piecenum = mypieces[(rand() % numpieces)];
+#endif
   //cout << piecenum << endl;
 
   GenPiece *ans;
@@ -177,7 +186,7 @@ void EndGame(int endState)
 void Timer(int callValue)
 {//Timer called if fallsec in seconds and fallusec in microseconds has passed
   if (AUTOFALL && (gameon == 1)) {
-    if (!(dude->Translate(W, -1))) { //if a new piece is necessary
+    if (!(dude->Translate(VW, -1))) { //if a new piece is necessary
       gameon = dude->DonePiece();
       delete dude;
       dude = NewPiece(numpieces, mypieces);
@@ -254,99 +263,99 @@ void Keyboard(unsigned char key, int x, int y)
 	  
 	  if(key == ('6' & '8'))
 	    {
-	      dude->Rotate(X, Y, 1);
+	      dude->Rotate(VX, VY, 1);
 	    }
 	  else if(key == ('6' & '2'))
 	    {
-	      dude->Rotate(X, Y, -1);	  
+	      dude->Rotate(VX, VY, -1);	  
 	    }
 	  else if(key == ('6' & '9'))
 	    {
-	      dude->Rotate(X, Z, 1);
+	      dude->Rotate(VX, VZ, 1);
 	    }
 	  else if(key == ('6' & '1'))
 	    {
-	      dude->Rotate(X, Z, -1);
+	      dude->Rotate(VX, VZ, -1);
 	    }
 	  else if(key == ('6' & '7'))
 	    {
-	      dude->Rotate(X, W, 1);	 
+	      dude->Rotate(VX, VW, 1);	 
 	    }
 	  else if(key == ('6' & '3'))
 	    {
-	      dude->Rotate(X, W, -1);
+	      dude->Rotate(VX, VW, -1);
 	    }
 	  else if(key == ('4' & '8'))
 	    {
-	      dude->Rotate(X, Y, -1);
+	      dude->Rotate(VX, VY, -1);
 	    }
 	  else if(key == ('4' & '2'))
 	    {
-	      dude->Rotate(X, Y, 1);
+	      dude->Rotate(VX, VY, 1);
 	    }
 	  else if(key == ('4' & '9'))
 	    {
-	      dude->Rotate(X, Z, -1);
+	      dude->Rotate(VX, VZ, -1);
 	    }
 	  else if(key == ('4' & '1'))
 	    {
-	      dude->Rotate(X, Z, 1);	  
+	      dude->Rotate(VX, VZ, 1);	  
 	    }
 	  else if(key == ('4' & '7'))
 	    {	
-	      dude->Rotate(X, W, -1);
+	      dude->Rotate(VX, VW, -1);
 	    }
 	  else if(key == ('4' & '3'))
 	    {
-	      dude->Rotate(X, W, 1);	  
+	      dude->Rotate(VX, VW, 1);	  
 	    }
 	  else if(key == ('8' & '9'))
 	    {
-	      dude->Rotate(Y, Z, 1);
+	      dude->Rotate(VY, VZ, 1);
 	    }
 	  else if(key == ('8' & '1'))
 	    {
-	      dude->Rotate(Y, Z, -1);
+	      dude->Rotate(VY, VZ, -1);
 	    }
 	  else if(key == ('8' & '7'))
 	    {
-	      dude->Rotate(Y, W, 1);
+	      dude->Rotate(VY, VW, 1);
 	    }
 	  else if(key == ('8' & '3'))
 	    {
-	      dude->Rotate(Y, W, -1);
+	      dude->Rotate(VY, VW, -1);
 	    }
 	  else if(key == ('2' & '9'))
 	    {
-	      dude->Rotate(Y, Z, -1);
+	      dude->Rotate(VY, VZ, -1);
 	    }
 	  else if(key == ('2' & '1'))
 	    {
-	      dude->Rotate(Y, Z, 1);
+	      dude->Rotate(VY, VZ, 1);
 	    }
 	  else if(key == ('2' & '7'))
 	    {
-	      dude->Rotate(Y, W, -1);
+	      dude->Rotate(VY, VW, -1);
 	    }
 	  else if(key == ('2' & '3'))
 	    {
-	      dude->Rotate(Y, W, 1);
+	      dude->Rotate(VY, VW, 1);
 	    }
 	  else if(key == ('9' & '7'))
 	    {
-	      dude->Rotate(Z, W, 1);
+	      dude->Rotate(VZ, VW, 1);
 	    }
 	  else if(key == ('9' & '3'))
 	    {
-	      dude->Rotate(Z, W, -1);
+	      dude->Rotate(VZ, VW, -1);
 	    }
 	  else if(key == ('1' & '7'))
 	    {
-	      dude->Rotate(Z, W, -1);
+	      dude->Rotate(VZ, VW, -1);
 	    }
 	  else if(key == ('1' & '3'))
 	    {
-	      dude->Rotate(Z, W, 1);
+	      dude->Rotate(VZ, VW, 1);
 	    }
 	} //test for alt false
       else
@@ -354,14 +363,14 @@ void Keyboard(unsigned char key, int x, int y)
 	  // check for translation, drop or escape
 	  switch(key)
 	    {//if number, translate along that axis
-	      case '6': {dude->Translate(X, 1); break;}
-	      case '4': {dude->Translate(X, -1); break;}
-	      case '8': {dude->Translate(Y, 1); break;}
-	      case '2': {dude->Translate(Y, -1); break;}
-	      case '9': {dude->Translate(Z, 1); break;}
-	      case '1': {dude->Translate(Z, -1); break;}
-	      case '7': {dude->Translate(W, 1); break;}
-	      case '3': {dude->Translate(W, -1); break;}
+	      case '6': {dude->Translate(VX, 1); break;}
+	      case '4': {dude->Translate(VX, -1); break;}
+	      case '8': {dude->Translate(VY, 1); break;}
+	      case '2': {dude->Translate(VY, -1); break;}
+	      case '9': {dude->Translate(VZ, 1); break;}
+	      case '1': {dude->Translate(VZ, -1); break;}
+	      case '7': {dude->Translate(VW, 1); break;}
+	      case '3': {dude->Translate(VW, -1); break;}
 	      case ' ': { //space pressed, so drop the piece
 		dude->Drop();
 		gameon = dude->DonePiece();
@@ -569,99 +578,99 @@ void SpecialKeyboard(int key, int x, int y)
 	  
       if(key == (GLUT_KEY_RIGHT & GLUT_KEY_RIGHT))
 	{
-	  dude->Rotate(X, Y, 1);
+	  dude->Rotate(VX, VY, 1);
 	}
       else if(key == (GLUT_KEY_RIGHT & GLUT_KEY_DOWN))
 	{
-	  dude->Rotate(X, Y, -1);	  
+	  dude->Rotate(VX, VY, -1);	  
 	}
       else if(key == (GLUT_KEY_RIGHT & GLUT_KEY_PAGE_UP))
 	{
-	  dude->Rotate(X, Z, 1);
+	  dude->Rotate(VX, VZ, 1);
 	}
       else if(key == (GLUT_KEY_RIGHT & GLUT_KEY_END))
 	{
-	  dude->Rotate(X, Z, -1);
+	  dude->Rotate(VX, VZ, -1);
 	}
       else if(key == (GLUT_KEY_RIGHT & GLUT_KEY_HOME))
 	{
-	  dude->Rotate(X, W, 1);	 
+	  dude->Rotate(VX, VW, 1);	 
 	}
       else if(key == (GLUT_KEY_RIGHT & GLUT_KEY_PAGE_DOWN))
 	{
-	  dude->Rotate(X, W, -1);
+	  dude->Rotate(VX, VW, -1);
 	}
       else if(key == (GLUT_KEY_LEFT & GLUT_KEY_UP))
 	{
-	  dude->Rotate(X, Y, -1);
+	  dude->Rotate(VX, VY, -1);
 	}
       else if(key == (GLUT_KEY_LEFT & GLUT_KEY_DOWN))
 	{
-	  dude->Rotate(X, Y, 1);
+	  dude->Rotate(VX, VY, 1);
 	}
       else if(key == (GLUT_KEY_LEFT & GLUT_KEY_PAGE_UP))
 	{
-	  dude->Rotate(X, Z, -1);
+	  dude->Rotate(VX, VZ, -1);
 	}
       else if(key == (GLUT_KEY_LEFT & GLUT_KEY_END))
 	{
-	  dude->Rotate(X, Z, 1);	  
+	  dude->Rotate(VX, VZ, 1);	  
 	}
       else if(key == (GLUT_KEY_LEFT & GLUT_KEY_HOME))
 	{	
-	  dude->Rotate(X, W, -1);
+	  dude->Rotate(VX, VW, -1);
 	}
       else if(key == (GLUT_KEY_LEFT & GLUT_KEY_PAGE_DOWN))
 	{
-	  dude->Rotate(X, W, 1);	  
+	  dude->Rotate(VX, VW, 1);	  
 	}
       else if(key == (GLUT_KEY_UP & GLUT_KEY_PAGE_UP))
 	{
-	  dude->Rotate(Y, Z, 1);
+	  dude->Rotate(VY, VZ, 1);
 	}
       else if(key == (GLUT_KEY_UP & GLUT_KEY_END))
 	{
-	  dude->Rotate(Y, Z, -1);
+	  dude->Rotate(VY, VZ, -1);
 	}
       else if(key == (GLUT_KEY_UP & GLUT_KEY_HOME))
 	{
-	  dude->Rotate(Y, W, 1);
+	  dude->Rotate(VY, VW, 1);
 	}
       else if(key == (GLUT_KEY_UP & GLUT_KEY_PAGE_DOWN))
 	{
-	  dude->Rotate(Y, W, -1);
+	  dude->Rotate(VY, VW, -1);
 	}
       else if(key == (GLUT_KEY_DOWN & GLUT_KEY_PAGE_UP))
 	{
-	  dude->Rotate(Y, Z, -1);
+	  dude->Rotate(VY, VZ, -1);
 	}
       else if(key == (GLUT_KEY_DOWN & GLUT_KEY_END))
 	{
-	  dude->Rotate(Y, Z, 1);
+	  dude->Rotate(VY, VZ, 1);
 	}
       else if(key == (GLUT_KEY_DOWN & GLUT_KEY_HOME))
 	{
-	  dude->Rotate(Y, W, -1);
+	  dude->Rotate(VY, VW, -1);
 	}
       else if(key == (GLUT_KEY_DOWN & GLUT_KEY_PAGE_DOWN))
 	{
-	  dude->Rotate(Y, W, 1);
+	  dude->Rotate(VY, VW, 1);
 	}
       else if(key == (GLUT_KEY_PAGE_UP & GLUT_KEY_HOME))
 	{
-	  dude->Rotate(Z, W, 1);
+	  dude->Rotate(VZ, VW, 1);
 	}
       else if(key == (GLUT_KEY_PAGE_UP & GLUT_KEY_PAGE_DOWN))
 	{
-	  dude->Rotate(Z, W, -1);
+	  dude->Rotate(VZ, VW, -1);
 	}
       else if(key == (GLUT_KEY_END & GLUT_KEY_HOME))
 	{
-	  dude->Rotate(Z, W, -1);
+	  dude->Rotate(VZ, VW, -1);
 	}
       else if(key == (GLUT_KEY_END & GLUT_KEY_PAGE_DOWN))
 	{
-	  dude->Rotate(Z, W, 1);
+	  dude->Rotate(VZ, VW, 1);
 	}
     } //test for alt false
   else
@@ -669,14 +678,14 @@ void SpecialKeyboard(int key, int x, int y)
       // check for translation, drop or escape
       switch(key)
 	{//if number, translate along that axis
-	  case GLUT_KEY_RIGHT: {dude->Translate(X, 1); break;}
-	  case GLUT_KEY_LEFT: {dude->Translate(X, -1); break;}
-	  case GLUT_KEY_UP: {dude->Translate(Y, 1); break;}
-	  case GLUT_KEY_DOWN: {dude->Translate(Y, -1); break;}
-	  case GLUT_KEY_PAGE_UP: {dude->Translate(Z, 1); break;}
-	  case GLUT_KEY_END: {dude->Translate(Z, -1); break;}
-	  case GLUT_KEY_HOME: {dude->Translate(W, 1); break;}
-	  case GLUT_KEY_PAGE_DOWN: {dude->Translate(W, -1); break;}
+	  case GLUT_KEY_RIGHT: {dude->Translate(VX, 1); break;}
+	  case GLUT_KEY_LEFT: {dude->Translate(VX, -1); break;}
+	  case GLUT_KEY_UP: {dude->Translate(VY, 1); break;}
+	  case GLUT_KEY_DOWN: {dude->Translate(VY, -1); break;}
+	  case GLUT_KEY_PAGE_UP: {dude->Translate(VZ, 1); break;}
+	  case GLUT_KEY_END: {dude->Translate(VZ, -1); break;}
+	  case GLUT_KEY_HOME: {dude->Translate(VW, 1); break;}
+	  case GLUT_KEY_PAGE_DOWN: {dude->Translate(VW, -1); break;}
 	}
     }
 

@@ -21,7 +21,7 @@ SimplePiece::SimplePiece() : GenPiece(1)
   int *dudeman = new int[4];
   for (int i = 0; i < 3; i++)
     dudeman[i] = (DIM[i] /2);
-  dudeman[W] = DIM[W];
+  dudeman[VW] = DIM[VW];
 
   float *high = new float[4];
   float *low = new float[4];

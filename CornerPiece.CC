@@ -3,8 +3,10 @@
 // CS290 with Prof. Francis
 // 4D Tetris
 //
-// ThreeLinePiece.C
-// Last modified: April 22, 1996
+// CornerPiece.C
+// Last modified: April 17, 1996
+//
+// (C) 1996 Board of Trustees University of Illinois
 
 #include "Pieces.h"
 
@@ -12,36 +14,46 @@ extern int *DIM;
 extern float *LEN;
 extern float *botcorner;
 
-ThreeLinePiece::ThreeLinePiece() : GenPiece(3)
+CornerPiece::CornerPiece() : GenPiece(4)
 {
-  centerstat = 1;
-  
+  centerstat = 2;
+
   int *dudeman = new int[4];
   for (int i = 0; i < 3; i++)
     dudeman[i] = (DIM[i] / 2);
-  dudeman[W] = (DIM[W] + 1);
+  dudeman[VW] = (DIM[VW] + 1);
 
-  int **newpos = new int*[3];
-  for (int i = 0; i < 3; i++)
+  int **newpos = new int*[4];
+  for (int i = 0; i < 4; i++)
     newpos[i] = new int[4];
 
   for (int i = 0; i < 4; i++) // cube 0
-    newpos[0][i] = dudeman[i] + ((i == W) ? 1 : 0);
+    newpos[0][i] = dudeman[i] + ((i == VW) ? 1 : 0);
 
   for (int i = 0; i < 4; i++) // cube 1
-    newpos[1][i] = dudeman[i];
+    newpos[1][i] = dudeman[i] + ((i == VX) ? -1 : 0);
 
   for (int i = 0; i < 4; i++) // cube 2
-    newpos[2][i] = dudeman[i] + ((i == W) ? -1 : 0);
+    newpos[2][i] = dudeman[i];
 
-  float **low = new float*[3];
-  float **high = new float*[3];
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) // cube 3
+    newpos[3][i] = dudeman[i] + ((i == VY) ? -1 : 0);
+
+  /*
+  for (int i = 0; i < 4; i++)
+    for (int k = 0; k < 4; k++)
+      cout << "newpos["<<i<<"]["<<k<<"] = " << newpos[i][k] << endl;
+*/
+
+  float **low = new float*[4];
+  float **high = new float*[4];
+
+  for (int i = 0; i < 4; i++) {
     low[i] = new float[4];
     high[i] = new float[4];
   }
 
-  for (int i = 0; i < 3; i++)
+  for (int i = 0; i < 4; i++)
     for (int j = 0; j < 4; j++) {
       low[i][j] = botcorner[j] + newpos[i][j] * LEN[j];
       high[i][j] = low[i][j] + LEN[j];
@@ -54,14 +66,14 @@ ThreeLinePiece::ThreeLinePiece() : GenPiece(3)
   center = new FourD(temp);
   delete temp;
 
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     cubes[i] = new Hyper(low[i], high[i], newpos[i]);
-    cubes[i]->SetColor(0xff6699);
+    cubes[i]->SetColor(0x00ffff);
   }
 
   delete dudeman;
 
-  for (int i = 0; i < 3; i++) {
+  for (int i = 0; i < 4; i++) {
     delete newpos[i];
     delete low[i];
     delete high[i];

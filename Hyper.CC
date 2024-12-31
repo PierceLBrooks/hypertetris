@@ -50,7 +50,7 @@ Hyper::Hyper(float low, float high, int *newpos)
 
   boardpos = new int[4];
   for (int ii = 0; ii < 4; ii++)  {
-    if (ii != W)
+    if (ii != VW)
       Assert(newpos[ii] < DIM[ii], "Piece doesn't fit on board");
     boardpos[ii] = newpos[ii];
   }
@@ -76,7 +76,7 @@ Hyper::Hyper(float *low, float *high, int *newpos)
 
   boardpos = new int[4];
   for (int ii = 0; ii < 4; ii++) {
-    if (ii != W)
+    if (ii != VW)
       Assert((newpos[ii] < DIM[ii]) && (newpos[ii] >= 0), 
 	     "Piece doesn't fit on board");
     boardpos[ii] = newpos[ii];
@@ -154,10 +154,10 @@ void Hyper::Output()
 // Return:  Nothing, but the hypercube has been translated
 void Hyper::Translate(int dir, int sign)
 {
-  float xx = ((dir == X) ? (float)(sign)*LEN[X] : 0.0);
-  float yy = ((dir == Y) ? (float)(sign)*LEN[Y] : 0.0);
-  float zz = ((dir == Z) ? (float)(sign)*LEN[Z] : 0.0);
-  float ww = ((dir == W) ? (float)(sign)*LEN[W] : 0.0);
+  float xx = ((dir == VX) ? (float)(sign)*LEN[VX] : 0.0);
+  float yy = ((dir == VY) ? (float)(sign)*LEN[VY] : 0.0);
+  float zz = ((dir == VZ) ? (float)(sign)*LEN[VZ] : 0.0);
+  float ww = ((dir == VW) ? (float)(sign)*LEN[VW] : 0.0);
 
   for (int i = 0; i < 16; i++)
     pts[i]->Translate(xx, yy, zz, ww);
@@ -175,7 +175,7 @@ void Hyper::Drawit(int axes)
 //  cout << "Begin Hyper::Drawit()" << endl;
 #endif
 
-  if ((boardpos[W] < DIM[W]) || (axes == 7)) {
+  if ((boardpos[VW] < DIM[VW]) || (axes == 7)) {
     // face 1, +x, +y
     bgntmesh(); Plot(0, axes); Plot(1, axes); 
     Plot(2, axes); Plot(3, axes); endtmesh();
@@ -309,31 +309,31 @@ void Hyper::Plot(int index, int axes)
 
   switch (axes) {
   case 7:
-    axis[0] = X;
-    axis[1] = Y;
-    axis[2] = Z;
-    notused = W;
+    axis[0] = VX;
+    axis[1] = VY;
+    axis[2] = VZ;
+    notused = VW;
     break;
 
   case 11:
-    axis[0] = W;
-    axis[1] = X;
-    axis[2] = Y;
-    notused = Z;
+    axis[0] = VW;
+    axis[1] = VX;
+    axis[2] = VY;
+    notused = VZ;
     break;
     
   case 13:
-    axis[0] = Z;
-    axis[1] = W;
-    axis[2] = X;
-    notused = Y;
+    axis[0] = VZ;
+    axis[1] = VW;
+    axis[2] = VX;
+    notused = VY;
     break;
 
   case 14:
-    axis[0] = Y;
-    axis[1] = Z;
-    axis[2] = W;
-    notused = X;
+    axis[0] = VY;
+    axis[1] = VZ;
+    axis[2] = VW;
+    notused = VX;
     break;
   }
 
@@ -363,8 +363,8 @@ void Hyper::Plot(int index, int axes)
 // Return:  Nothing, but the shadow has been drawn
 void Hyper::Drawit2D(int axes)
 {
-  float wcoord = botcorner[W] - .005;
-  float wcoord2 = botcorner[W] - .02;
+  float wcoord = botcorner[VW] - .005;
+  float wcoord2 = botcorner[VW] - .02;
   float mypoints[8][3];
   int i;
 
@@ -376,16 +376,16 @@ void Hyper::Drawit2D(int axes)
       mypoints[i][0] = wcoord2;
 
     for (int i = 0; i < 4; i++)
-      mypoints[2*i][1] = (*pts[0])[X];
+      mypoints[2*i][1] = (*pts[0])[VX];
     for (int i = 0; i < 4; i++)
-      mypoints[2*i+1][1] = (*pts[15])[X];
+      mypoints[2*i+1][1] = (*pts[15])[VX];
 
-    //mypoints[0][1] = mypoints[2][1] = (*pts[0])[X];
-    //mypoints[1][1] = mypoints[3][1] = (*pts[15])[X];
+    //mypoints[0][1] = mypoints[2][1] = (*pts[0])[VX];
+    //mypoints[1][1] = mypoints[3][1] = (*pts[15])[VX];
     mypoints[0][2] = mypoints[1][2] = mypoints[4][2] = mypoints[5][2] = 
-      (*pts[0])[Y];
+      (*pts[0])[VY];
     mypoints[2][2] = mypoints[3][2] = mypoints[6][2] = mypoints[7][2] = 
-      (*pts[15])[Y];
+      (*pts[15])[VY];
     break;
   
   case 13: // zwx
@@ -395,16 +395,16 @@ void Hyper::Drawit2D(int axes)
       mypoints[i][1] = wcoord2;
 
     for (int i = 0; i < 4; i++)
-      mypoints[2*i][0] = (*pts[0])[Z];
+      mypoints[2*i][0] = (*pts[0])[VZ];
     for (int i = 0; i < 4; i++)
-      mypoints[2*i+1][0] = (*pts[15])[Z];
+      mypoints[2*i+1][0] = (*pts[15])[VZ];
     
-    //mypoints[0][0] = mypoints[2][0] = (*pts[0])[Z];
-    //mypoints[1][0] = mypoints[3][0] = (*pts[15])[Z];
+    //mypoints[0][0] = mypoints[2][0] = (*pts[0])[VZ];
+    //mypoints[1][0] = mypoints[3][0] = (*pts[15])[VZ];
     mypoints[0][2] = mypoints[1][2] = mypoints[4][2] = mypoints[5][2] =
-      (*pts[0])[X];
+      (*pts[0])[VX];
     mypoints[2][2] = mypoints[3][2] = mypoints[6][2] = mypoints[7][2] =
-      (*pts[15])[X];
+      (*pts[15])[VX];
     break;
   
   case 14: // yzw
@@ -414,16 +414,16 @@ void Hyper::Drawit2D(int axes)
       mypoints[i][2] = wcoord2;
 
     for (int i = 0; i < 4; i++)
-      mypoints[2*i][0] = (*pts[0])[Y];
+      mypoints[2*i][0] = (*pts[0])[VY];
     for (int i = 0; i < 4; i++)
-      mypoints[2*i+1][0] = (*pts[15])[Y];
+      mypoints[2*i+1][0] = (*pts[15])[VY];
 
-    //mypoints[0][0] = mypoints[2][0] = (*pts[0])[Y];
-    //mypoints[1][0] = mypoints[3][0] = (*pts[15])[Y];
+    //mypoints[0][0] = mypoints[2][0] = (*pts[0])[VY];
+    //mypoints[1][0] = mypoints[3][0] = (*pts[15])[VY];
     mypoints[0][1] = mypoints[1][1] = mypoints[4][1] = mypoints[5][1] = 
-      (*pts[0])[Z];
+      (*pts[0])[VZ];
     mypoints[2][1] = mypoints[3][1] = mypoints[6][1] = mypoints[7][1] = 
-      (*pts[15])[Z];
+      (*pts[15])[VZ];
     break;
   }
 

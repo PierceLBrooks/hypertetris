@@ -11,10 +11,10 @@
 #ifndef _SHARED_H_
 #define _SHARED_H_
 
-#define X 0
-#define Y 1
-#define Z 2
-#define W 3
+constexpr int VX = 0;
+constexpr int VY = 1;
+constexpr int VZ = 2;
+constexpr int VW = 3;
 
 
 //attempt to convert to OpenGL

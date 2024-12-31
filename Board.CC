@@ -19,15 +19,15 @@ extern float *botcorner;
 // Return:  Nothing, but the new board has been created
 Board::Board()
 {
-  boardarray = new char***[DIM[X]];
+  boardarray = new char***[DIM[VX]];
 
-  for (int i = 0; i < DIM[X]; i++) {
-    boardarray[i] = new char**[DIM[Y]];
-    for (int j = 0; j < DIM[Y]; j++) {
-      boardarray[i][j] = new char*[DIM[Z]];
-      for (int k = 0; k < DIM[Z]; k++) {
-	boardarray[i][j][k] = new char[DIM[W]];
-	for (int l = 0; l < DIM[W]; l++)
+  for (int i = 0; i < DIM[VX]; i++) {
+    boardarray[i] = new char**[DIM[VY]];
+    for (int j = 0; j < DIM[VY]; j++) {
+      boardarray[i][j] = new char*[DIM[VZ]];
+      for (int k = 0; k < DIM[VZ]; k++) {
+	boardarray[i][j][k] = new char[DIM[VW]];
+	for (int l = 0; l < DIM[VW]; l++)
 	  boardarray[i][j][k][l] = EMPTY;
       }
     }
@@ -63,9 +63,9 @@ Board::Board()
 // Return:  Nothing, but the memory has been freed
 Board::~Board()
 {
-  for (int i = 0; i < DIM[X]; i++) {
-    for (int j = 0; j < DIM[Y]; j++) {
-      for (int k = 0; k < DIM[Z]; k++)
+  for (int i = 0; i < DIM[VX]; i++) {
+    for (int j = 0; j < DIM[VY]; j++) {
+      for (int k = 0; k < DIM[VZ]; k++)
 	delete boardarray[i][j][k];
       delete boardarray[i][j];
     }
@@ -95,7 +95,7 @@ int Board::GoodSpotShort(int *pos)
   cout << "Begin Board::GoodSpotShort(...)" << endl;
 #endif
 
-  if (pos[W] >= DIM[W])
+  if (pos[VW] >= DIM[VW])
     return 1;
 
   return ((boardarray[pos[0]][pos[1]][pos[2]][pos[3]] == FILLED) ? 0 : 1);
@@ -108,11 +108,11 @@ int Board::GoodSpotShort(int *pos)
 // Return:  0 if off of board or FILLED, 1 if the position is EMPTY
 int Board::GoodSpot(int *pos)
 {
-  if ((pos[X] >= DIM[X]) || (pos[X] < 0) || (pos[Y] >= DIM[Y]) ||
-      (pos[Y] < 0) || (pos[Z] >= DIM[Z]) || (pos[Z] < 0) || (pos[W] < 0))
+  if ((pos[VX] >= DIM[VX]) || (pos[VX] < 0) || (pos[VY] >= DIM[VY]) ||
+      (pos[VY] < 0) || (pos[VZ] >= DIM[VZ]) || (pos[VZ] < 0) || (pos[VW] < 0))
     return 0;
 
-  if (pos[W] >= DIM[W])
+  if (pos[VW] >= DIM[VW])
     return 1;
   
   return (boardarray[pos[0]][pos[1]][pos[2]][pos[3]] == EMPTY);
@@ -148,7 +148,7 @@ int Board::DonePiece(Hyper **newcubes, int numcubes)
 #endif
 
   for (int i = 0; i < numcubes; i++) {
-    if (newcubes[i]->GetPos()[W] >= DIM[W]) 
+    if (newcubes[i]->GetPos()[VW] >= DIM[VW]) 
       return 0;
     FillSpot(newcubes[i]->GetPos());
     newcubes[i]->DimColor();
@@ -172,14 +172,14 @@ int Board::CheckBoard()
 {
   int numremoved = 0;
 
-  for (int ww = DIM[W] - 1; ww >= 0; ww--) {
+  for (int ww = DIM[VW] - 1; ww >= 0; ww--) {
     int boolean = 0;
     int xx = 0;
-    while (boolean && (xx < DIM[X])) {
+    while (boolean && (xx < DIM[VX])) {
       int yy = 0;
-      while (boolean && (yy < DIM[Y])) {
+      while (boolean && (yy < DIM[VY])) {
 	int zz = 0;
-	while (boolean && (zz < DIM[Z])) {
+	while (boolean && (zz < DIM[VZ])) {
 	  boolean = boardarray[xx][yy][zz][ww] == FILLED;
 	  zz++;
 	}
@@ -220,21 +220,21 @@ void Board::Drawit(int axes)
 
     switch (axes) {
     case 11:
-      axis[0] = W;
-      axis[1] = X;
-      axis[2] = Y;
+      axis[0] = VW;
+      axis[1] = VX;
+      axis[2] = VY;
       break;
       
     case 13:
-      axis[0] = Z;
-      axis[1] = W;
-      axis[2] = X;
+      axis[0] = VZ;
+      axis[1] = VW;
+      axis[2] = VX;
       break;
       
     case 14:
-      axis[0] = Y;
-      axis[1] = Z;
-      axis[2] = W;
+      axis[0] = VY;
+      axis[1] = VZ;
+      axis[2] = VW;
       break;
     }
 
@@ -384,9 +384,9 @@ void Board::Drawit(int axes)
 }
 
 
-// Given:   A coordinate, in terms of board coordinates, in W
-// Task:    Remove all of the hypercubes which have this W coordinate, and
-//          crop all of the hypcubes above this W coordinate down one
+// Given:   A coordinate, in terms of board coordinates, in VW
+// Task:    Remove all of the hypercubes which have this VW coordinate, and
+//          crop all of the hypcubes above this VW coordinate down one
 // Return:  Nothing, but the board has been taken care of
 void Board::RemoveCube(int wcoord)
 {
@@ -406,7 +406,7 @@ void Board::RemoveCube(int wcoord)
   fallen->Head();
   while (boolean && FindAboveW(fallen, wcoord)) {
     EmptySpot(fallen->Get()->GetPos());
-    fallen->Get()->Translate(W, -1);
+    fallen->Get()->Translate(VW, -1);
     FillSpot(fallen->Get()->GetPos());
     if (fallen->EndOfList())
       boolean = 0;
@@ -420,8 +420,8 @@ void Board::RemoveCube(int wcoord)
 }
 
 
-// Given:   A List of hypercubes and a W coordinate
-// Task:    Find the next cube in the list above this W coordinate, and
+// Given:   A List of hypercubes and a VW coordinate
+// Task:    Find the next cube in the list above this VW coordinate, and
 //          point the current pointer at it
 // Return:  0 if there are no such cubes in the list, 1 if there is such
 //          a cube in the list
@@ -429,7 +429,7 @@ int FindAboveW(DList<Hyper> *List, int wcoord)
 {
   Node<Hyper> *Search = List->current;
   while (Search != NULL)
-    if (Search->data->GetPos()[W] > wcoord) {
+    if (Search->data->GetPos()[VW] > wcoord) {
       List->current = Search;
       return 1;
     } else
@@ -439,8 +439,8 @@ int FindAboveW(DList<Hyper> *List, int wcoord)
 }
 
 
-// Given:   A list of hypercubes and a W coordinate
-// Task:    Find the next cube in the list with this W coordinate, and
+// Given:   A list of hypercubes and a VW coordinate
+// Task:    Find the next cube in the list with this VW coordinate, and
 //          point the current pointer at it
 // Return:  0 if there are no such cubes in the list, 1 if there is such
 //          a cube in the list
@@ -448,7 +448,7 @@ int FindAtW(DList<Hyper> *List, int wcoord)
 {
   Node<Hyper> *Search = List->current;
   while (Search != NULL)
-    if (Search->data->GetPos()[W] == wcoord) {
+    if (Search->data->GetPos()[VW] == wcoord) {
       List->current = Search;
       return 1;
     } else

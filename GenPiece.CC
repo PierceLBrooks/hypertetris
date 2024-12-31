@@ -192,10 +192,10 @@ int GenPiece::Translate(int dir, int sign)
 	cout << "boardpos["<<i<<"]["<<j<<"] = "<<cubes[i]->GetPos()[j] << endl;
 */
 
-    float xx = ((dir == X) ? (float)(sign)*LEN[X] : 0.0);
-    float yy = ((dir == Y) ? (float)(sign)*LEN[Y] : 0.0);
-    float zz = ((dir == Z) ? (float)(sign)*LEN[Z] : 0.0);
-    float ww = ((dir == W) ? (float)(sign)*LEN[W] : 0.0);
+    float xx = ((dir == VX) ? (float)(sign)*LEN[VX] : 0.0);
+    float yy = ((dir == VY) ? (float)(sign)*LEN[VY] : 0.0);
+    float zz = ((dir == VZ) ? (float)(sign)*LEN[VZ] : 0.0);
+    float ww = ((dir == VW) ? (float)(sign)*LEN[VW] : 0.0);
     center->Translate(xx, yy, zz, ww);
     }
   
@@ -212,7 +212,7 @@ int GenPiece::Translate(int dir, int sign)
 
 
 // Given:   Nothing
-// Task:    Drop this piece as far as possible in the negative W direction
+// Task:    Drop this piece as far as possible in the negative VW direction
 // Return:  Nothing, but the piece has been dropped
 void GenPiece::Drop() 
 {
@@ -220,7 +220,7 @@ void GenPiece::Drop()
   cout << "Begin GenPiece::Drop()" << endl;
 #endif
 
-  while (Translate(W, -1)); 
+  while (Translate(VW, -1)); 
 
 #ifdef DEBUG_GENPIECE
   cout << "End GenPiece::Drop()" << endl;

@@ -3,7 +3,7 @@
 // CS290 with Prof. Francis
 // 4D Tetris
 //
-// LPiece.C
+// ZPiece.C
 // Last modified: April 17, 1996
 //
 // (C) 1996 Board of Trustees University of Illinois
@@ -14,45 +14,49 @@ extern int *DIM;
 extern float *LEN;
 extern float *botcorner;
 
-LPiece::LPiece() : GenPiece(4) 
+ZPiece::ZPiece() : GenPiece(5)
 {
   centerstat = 2;
-
+  
   int *dudeman = new int[4];
   for (int i = 0; i < 3; i++)
     dudeman[i] = (DIM[i] / 2);
-  dudeman[W] = DIM[W];
+  dudeman[VW] = (DIM[VW] + 1);
+
+  int **newpos = new int*[5];
   
-  int **newpos = new int*[4];
-  for (int i = 0; i < 4; i++)
+  for (int i = 0; i < 5; i++)
     newpos[i] = new int[4];
 
   for (int i = 0; i < 4; i++) // cube 0
-    newpos[0][i] = dudeman[i] + ((i == W) ? 2 : 0);
+    newpos[0][i] = dudeman[i] + ((i == VY) ? 1 : ((i == VX) ? -1 : 0));
 
-   for (int i = 0; i < 4; i++) // cube 1
-    newpos[1][i] = dudeman[i] + ((i == W) ? 1 : 0);
-  
+  for (int i = 0; i < 4; i++) // cube 1
+    newpos[1][i] = dudeman[i] + ((i == VY) ? 1 : 0);
+
   for (int i = 0; i < 4; i++) // cube 2
     newpos[2][i] = dudeman[i];
 
   for (int i = 0; i < 4; i++) // cube 3
-    newpos[3][i] = dudeman[i] + ((i == X) ? 1 : 0);
+    newpos[3][i] = dudeman[i] + ((i == VY) ? -1 : 0);
 
-/*
-  for (int i = 0; i < 4; i++)
-    for (int k = 0; k < 4; k++)
-      cout << "newpos["<<i<<"]["<<k<<"] = " << newpos[i][k] << endl;
+  for (int i = 0; i < 4; i++) // cube 4
+    newpos[4][i] = dudeman[i] + ((i == VY) ? -1 : ((i == VX) ? 1 : 0));
+
+  /*
+  for (int i = 0; i < 5; i++)
+    for (int j = 0; j < 4; j++)
+      cout << "newpos["<<i<<"]["<<j<<"] = " << newpos[i][j] << endl;
 */
 
-  float **low = new float*[4];
-  float **high = new float*[4];
-  for (int i = 0; i < 4; i++) {
+  float **low = new float*[5];
+  float **high = new float*[5];
+  for (int i = 0; i < 5; i++) {
     low[i] = new float[4];
     high[i] = new float[4];
   }
 
-  for (int i = 0; i < 4; i++)
+  for (int i = 0; i < 5; i++)
     for (int j = 0; j < 4; j++) {
       low[i][j] = botcorner[j] + newpos[i][j] * LEN[j];
       high[i][j] = low[i][j] + LEN[j];
@@ -65,14 +69,15 @@ LPiece::LPiece() : GenPiece(4)
   center = new FourD(temp);
   delete temp;
 
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     cubes[i] = new Hyper(low[i], high[i], newpos[i]);
-    cubes[i]->SetColor(0xff0000);
+    //cubes[i]->SetColor(0x1ab23c);
+    cubes[i]->SetColor(0x0066ff);
   }
 
   delete dudeman;
 
-  for (int i = 0; i < 4; i++) {
+  for (int i = 0; i < 5; i++) {
     delete newpos[i];
     delete low[i];
     delete high[i];

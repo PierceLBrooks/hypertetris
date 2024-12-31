@@ -55,6 +55,11 @@ void Rotor::Rotate()
   float dx = (active ? mouseX : 0.0);
   float dy = (active ? mouseY : 0.0);
   if (active) {
+#ifndef _WIN32
+    int spd = 19;
+#else
+    int spd = 19;
+#endif
     int xt, yt;
 
     //get the window size
@@ -70,14 +75,18 @@ void Rotor::Rotate()
 
     //    dx = ((-20 < dx) &&(20 > dx) ? 0 : dx);    
     //    dy = ((-20 < dy) &&(20 > dy) ? 0 : dy);
-    if( -DEADZONE >= dx)dx+=19;
-    else if(DEADZONE<=dx)dx-=19;
+    if( -DEADZONE >= dx)dx+=spd;
+    else if(DEADZONE<=dx)dx-=spd;
     else dx=0;
-    if( -DEADZONE >= dy)dy+=19;
-    else if(DEADZONE<=dy)dy-=19;
+    if( -DEADZONE >= dy)dy+=spd;
+    else if(DEADZONE<=dy)dy-=spd;
     else dy=0;
     //
     dy = -dy;
+#ifdef _WIN32
+    dx /= spd/4;
+    dy /= spd/4;
+#endif
   }  
 
   pushmatrix();

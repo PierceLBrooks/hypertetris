@@ -21,7 +21,7 @@ TwoPiece::TwoPiece() : GenPiece(2)
   int *dudeman = new int[4];
   for (int i = 0; i < 3; i++)
     dudeman[i] = (DIM[i] / 2);  
-  dudeman[W] = (DIM[W] + 1);
+  dudeman[VW] = (DIM[VW] + 1);
 
   int **newpos = new int*[2];
   for (int i = 0; i < 2; i++)
@@ -31,7 +31,7 @@ TwoPiece::TwoPiece() : GenPiece(2)
     newpos[0][i] = dudeman[i];
 
   for (int i = 0; i < 4; i++) // cube 1
-    newpos[1][i] = dudeman[i] + ((i == W) ? -1 : 0);
+    newpos[1][i] = dudeman[i] + ((i == VW) ? -1 : 0);
   
   float **low = new float*[2];
   float **high = new float*[2];

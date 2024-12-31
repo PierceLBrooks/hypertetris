@@ -3,7 +3,7 @@
 // CS290 with Prof. Francis
 // 4D Tetris
 //
-// TwistyPiece.C
+// TPiece.C
 // Last modified: April 17, 1996
 //
 // (C) 1996 Board of Trustees University of Illinois
@@ -14,32 +14,32 @@ extern int *DIM;
 extern float *LEN;
 extern float *botcorner;
 
-TwistyPiece::TwistyPiece() : GenPiece(4)
+TPiece::TPiece() : GenPiece(4) 
 {
-  centerstat = -1;
-  
+  centerstat = 1;
+
   int *dudeman = new int[4];
   for (int i = 0; i < 3; i++)
     dudeman[i] = (DIM[i] / 2);
-  dudeman[W] = (DIM[W] + 1);
+  dudeman[VW] = (DIM[VW] + 1);
 
   int **newpos = new int*[4];
   for (int i = 0; i < 4; i++)
     newpos[i] = new int[4];
 
   for (int i = 0; i < 4; i++) // cube 0
-    newpos[0][i] = dudeman[i] + ((i == Z) ? -1 : 0);
-  
+    newpos[0][i] = dudeman[i] + ((i == VW) ? 1 : 0);
+ 
   for (int i = 0; i < 4; i++) // cube 1
     newpos[1][i] = dudeman[i];
 
   for (int i = 0; i < 4; i++) // cube 2
-    newpos[2][i] = dudeman[i] + ((i == X) ? 1 : 0);
+    newpos[2][i] = dudeman[i] + ((i == VX) ? 1 : 0);
 
   for (int i = 0; i < 4; i++) // cube 3
-    newpos[3][i] = dudeman[i] + (((i == X) || (i == Y)) ? 1 : 0);
- 
-  /*
+    newpos[3][i] = dudeman[i] + ((i == VW) ? -1 : 0);
+
+/*
   for (int i = 0; i < 4; i++)
     for (int j = 0; j < 4; j++)
       cout << "newpos["<<i<<"]["<<j<<"] = " << newpos[i][j] << endl;
@@ -57,17 +57,17 @@ TwistyPiece::TwistyPiece() : GenPiece(4)
       low[i][j] = botcorner[j] + newpos[i][j] * LEN[j];
       high[i][j] = low[i][j] + LEN[j];
     }
- 
+
   float *temp = new float[4];
   for (int i = 0; i < 4; i++)
-    temp[i] = botcorner[i] + dudeman[i]*LEN[i]+(((i == Y)||(i == X))?LEN[i]:0);
+    temp[i] = (low[centerstat][i] + high[centerstat][i]) / 2;
 
   center = new FourD(temp);
   delete temp;
 
   for (int i = 0; i < 4; i++) {
     cubes[i] = new Hyper(low[i], high[i], newpos[i]);
-    cubes[i]->SetColor(0x666666);
+    cubes[i]->SetColor(0xff00ff);
   }
 
   delete dudeman;

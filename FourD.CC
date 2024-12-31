@@ -27,7 +27,7 @@ FourD::FourD()
 // Return:  Nothing, but the new point has been created
 FourD::FourD(float x, float y, float z, float w)
 {
-  pt = new float[4]; pt[X] = x; pt[Y] = y; pt[Z] = z; pt[W] = w;
+  pt = new float[4]; pt[VX] = x; pt[VY] = y; pt[VZ] = z; pt[VW] = w;
 }
 
 
@@ -95,7 +95,7 @@ void FourD::Plot(int *axis, float *dist)
 // Return:  Nothing, but the point has been translated
 void FourD::Translate(float xx, float yy, float zz, float ww)
 {
-  pt[X] += xx;  pt[Y] += yy;  pt[Z] += zz;  pt[W] += ww;
+  pt[VX] += xx;  pt[VY] += yy;  pt[VZ] += zz;  pt[VW] += ww;
 }
 
 
